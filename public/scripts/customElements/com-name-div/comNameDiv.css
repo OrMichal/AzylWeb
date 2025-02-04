@@ -1,14 +1,15 @@
-com-name-div{
+com-name-div::part(comNameDiv) {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    align-items: center;
 }
 
-com-name-div img{
+com-name-div::part(comNameImg) {
     height: 5rem;
-    width: 5rem;
+    width: 10rem;
 }
 
-com-name-div span{
-    font-size: 12rem;
+com-name-div::part(comNameSpan) {
+    font-size: 2rem;
 }

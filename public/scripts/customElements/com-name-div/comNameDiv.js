@@ -1,17 +1,17 @@
-class comndiv extends HTMLElement {
+class ComNameDiv extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
+        this.attachShadow({ mode: "open" });
 
         const div = document.createElement("div");
-        div.className = "comNameDiv";
+        div.part = "comNameDiv";
 
         const img = document.createElement("img");
         img.src = this.getAttribute("src");
-        img.className = "comNameImg";
+        img.part = "comNameImg";
 
         const span = document.createElement("span");
-        span.className = "comNameSpan";
+        span.part = "comNameSpan";
         span.textContent = "Daisy azyl";
 
         div.appendChild(img);
@@ -20,4 +20,4 @@ class comndiv extends HTMLElement {
     }
 }
 
-customElements.define("com-name-div", comndiv);
+customElements.define("com-name-div", ComNameDiv);

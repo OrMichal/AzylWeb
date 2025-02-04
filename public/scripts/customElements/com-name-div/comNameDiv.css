@@ -1,0 +1,14 @@
+com-name-div{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+com-name-div img{
+    height: 5rem;
+    width: 5rem;
+}
+
+com-name-div span{
+    font-size: 12rem;
+}

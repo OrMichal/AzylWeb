@@ -7,7 +7,7 @@ com-name-div::part(comNameDiv) {
 
 com-name-div::part(comNameImg) {
     height: 5rem;
-    width: 10rem;
+    width: 5rem;
 }
 
 com-name-div::part(comNameSpan) {

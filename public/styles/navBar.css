@@ -12,10 +12,12 @@
 }
 
 .navBarLi{
-    width: auto;
-    font-size: 1.2rem;
+    min-width: 5rem;
+    font-size: 1.6rem;
     transition: 200ms ease;
     cursor: pointer;
+    position: relative;
+    padding-bottom: 10px;
 }
 
 .navBarLi::after{
@@ -24,6 +26,35 @@
 }
 
 .navBarLi:hover{
-    background-color: black;
-    color: white;
+    color: rgb(179, 118, 27);
+}
+
+.navBarLi:hover::after{
+    content: "▼";
+}
+
+.navBarLi:hover .navBarLiDetails{
+    display: flex;
+    transition: 200ms ease-in-out;
+}
+
+.navBarLiDetails{
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    background-color: white;
+    font-size: 0.9rem;
+    color: black;
+    padding: 0.5rem;
+    border-bottom: solid 2px rgb(179, 118, 27);
+
+    .item:hover{
+        transition: 200ms ease-in-out;
+        color: rgb(179, 118, 27);
+        transform: translateX(0.1rem);
+    }
 }

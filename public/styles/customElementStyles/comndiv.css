@@ -6,8 +6,8 @@ com-name-div::part(comNameDiv) {
 }
 
 com-name-div::part(comNameImg) {
-    height: 5rem;
-    width: 5rem;
+    height: 4rem;
+    width: 4rem;
 }
 
 com-name-div::part(comNameSpan) {
@@ -30,6 +30,6 @@ com-name-div::part(comNameTypeSpan){
 }
 
 com-logo::part(comLogoImg){
-    height: 5rem;
-    width: 5rem;   
+    height: 4rem;
+    width: 4rem;
 }

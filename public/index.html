@@ -5,13 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azyl Daisy z.s.</title>
 
-    <link rel="stylesheet" href="./scripts/customElements/com-name-div/comNameDiv.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles/customElementStyles/comndiv.css">
+    <link rel="stylesheet" href="./styles/navBar.css">
+    <link rel="stylesheet" href="./styles/socialsNavBar.css">
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="icon" href="./images/daisy-azyl-pos.png">
 </head>
 <body>
-    <com-name-div src="./images/daisy-azyl-pos.png"></com-name-div>
+    <div class="mainDiv">
 
-    <script src="./scripts/customElements/com-name-div/comNameDiv.js"></script>
+        <nav class="socialsNavBar">
+            <ul class="socialsNavBarList">
+                <li>
+                    <ul class="socialsUl">
+                        <li class="socialsLi">
+                            <a href="" class="fa-brands fa-facebook"></a>
+                        </li>
+                        <li class="socialsLi">
+                            <a href="" class="fa-brands fa-instagram"></a>
+                        </li>
+                        <li class="socialsLi">
+                            <a href="" class="fa-brands fa-twitter"></a>
+                        </li>
+                        <li class="socialsLi">
+                            <a href="" class="fa-solid fa-envelope"></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="supportButton">
+                        <a href="">❤️ Jak nás můžete podpořit?</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="userAccount">
+                        <i class="fa-solid fa-user"></i>
+                        <a href="">Uživatelský účet</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        
+        <nav class="navBar">
+            <ul class="navBarUl">
+                <li class="">
+                    <a href="./index.html">
+                        <com-logo></com-logo>
+                    </a>
+                </li>
+                <li class="navBarLi">
+                    <span>O nás</span>
+                </li>
+                <li class="navBarLi">
+                    <span>Zvířátka</span>
+                </li>
+                <li class="navBarLi">
+                    <span>Časté dotazy</span>
+                </li>
+                <li class="navBarLi">
+                    <span>E-shop</span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="./scripts/comNameDiv.js"></script>
+    <script src="./scripts/comLogo.js"></script>
 </body>
 </html>

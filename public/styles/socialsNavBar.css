@@ -1,0 +1,58 @@
+.socialsNavBar {
+    background-color: #605d63; 
+    color: white;
+    width: 100%;
+    padding: 0rem 2rem;
+}
+
+.socialsNavBarList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.socialsUl {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+.socialsLi{
+    border: solid 1px white;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+}
+
+.socialsLi a {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.supportButton {
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    border: solid 1px;
+    border-color: #2f2e30;
+    color: white;
+}
+
+.supportButton a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.userAccount {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: solid 1px white;
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+}
+
+.userAccount a {
+    color: white;
+    text-decoration: none;
+}

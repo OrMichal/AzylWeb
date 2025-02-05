@@ -1,0 +1,29 @@
+.navBar{
+    border: solid 2px;
+    padding-right: 2rem;
+}
+
+.navBarUl{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    list-style: none;
+    align-items:end;
+}
+
+.navBarLi{
+    width: auto;
+    font-size: 1.2rem;
+    transition: 200ms ease;
+    cursor: pointer;
+}
+
+.navBarLi::after{
+    content: "<";
+    font-size: 0.8rem;
+}
+
+.navBarLi:hover{
+    background-color: black;
+    color: white;
+}

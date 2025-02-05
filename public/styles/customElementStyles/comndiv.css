@@ -1,0 +1,35 @@
+com-name-div::part(comNameDiv) {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+com-name-div::part(comNameImg) {
+    height: 5rem;
+    width: 5rem;
+}
+
+com-name-div::part(comNameSpan) {
+    font-size: 2rem;
+}
+
+com-name-div::part(comNameFlexDivC){
+    display: flex;
+    flex-direction: column;
+}
+
+com-name-div::part(comNameFlexDivR){
+    display: flex;
+    flex-direction: row;
+    gap: 0.6rem;
+}
+
+com-name-div::part(comNameTypeSpan){
+    font-size: 1rem;
+}
+
+com-logo::part(comLogoImg){
+    height: 5rem;
+    width: 5rem;   
+}

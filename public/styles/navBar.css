@@ -1,6 +1,8 @@
 .navBar{
     border: solid 2px;
     padding-right: 2rem;
+    border: none;
+    background-color: white;
 }
 
 .navBarUl{
@@ -12,7 +14,7 @@
 }
 
 .navBarLi{
-    min-width: 5rem;
+    width: auto;
     font-size: 1.6rem;
     transition: 200ms ease;
     cursor: pointer;
@@ -31,6 +33,7 @@
 
 .navBarLi:hover::after{
     content: "▼";
+    font-size: 0.8rem;
 }
 
 .navBarLi:hover .navBarLiDetails{
@@ -41,7 +44,6 @@
 .navBarLiDetails{
     display: none;
     flex-direction: column;
-    gap: 1rem;
     position: absolute;
     top: 100%;
     left: 0;
@@ -52,7 +54,11 @@
     padding: 0.5rem;
     border-bottom: solid 2px rgb(179, 118, 27);
 
-    .item:hover{
+    .descItem{
+        padding: 0.3rem;
+    }
+
+    .descItem:hover{
         transition: 200ms ease-in-out;
         color: rgb(179, 118, 27);
         transform: translateX(0.1rem);

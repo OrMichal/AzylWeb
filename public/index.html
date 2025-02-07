@@ -3,131 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azyl Daisy z.s.</title>
+    <title>Daisy azyl z.s.</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./styles/customElementStyles/comndiv.css">
     <link rel="stylesheet" href="./styles/navBar.css">
     <link rel="stylesheet" href="./styles/socialsNavBar.css">
+    <link rel="stylesheet" href="./styles/home-page.css">
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="icon" href="./images/daisy-azyl-pos.png">
 </head>
 <body>
-    <div class="mainDiv">
-        <nav class="socialsNavBar">
-            <ul class="socialsNavBarList">
+    <header>
+        <nav class="socials-nav">
+            <ul class="socials-nav-list">
                 <li>
-                    <ul class="socialsUl">
-                        <li class="socialsLi">
+                    <ul class="socials-list">
+                        <li class="socials-item">
                             <a href="" class="fa-brands fa-facebook"></a>
                         </li>
-                        <li class="socialsLi">
+                        <li class="socials-item">
                             <a href="" class="fa-brands fa-instagram"></a>
                         </li>
-                        <li class="socialsLi">
+                        <li class="socials-item">
                             <a href="" class="fa-brands fa-twitter"></a>
                         </li>
-                        <li class="socialsLi">
+                        <li class="socials-item">
                             <a href="" class="fa-solid fa-envelope"></a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <div class="supportButton">
+                    <div class="support-button">
                         <a href="">❤️ Jak nás můžete podpořit?</a>
                     </div>
                 </li>
                 <li>
-                    <div class="userAccount">
+                    <div class="user-account">
                         <i class="fa-solid fa-user"></i>
                         <a href="">Uživatelský účet</a>
                     </div>
                 </li>
             </ul>
         </nav>
+    </header>
 
-        <div class="centererDiv">
-            <nav class="navBar">
-                <ul class="navBarUl">
+    <div class="main-container">
+        <div class="content-wrapper">
+            <nav class="main-nav">
+                <ul class="main-nav-list">
                     <li class="">
                         <a href="./index.html">
                             <com-logo></com-logo>
                         </a>
                     </li>
-                    <li class="navBarLi">
+                    <li class="main-nav-item">
                         <span>O nás</span>
-                        <div class="navBarLiDetails">
-                            <a href="" class="descItem">
+                        <div class="main-nav-dropdown">
+                            <a href="" class="dropdown-item">
                                 <span>Kdo jsme</span>
                             </a>
-                            <a href="" class="descItem">
+                            <a href="" class="dropdown-item">
                                 <span>Jak to u nás funguje</span>
                             </a>
-                            <a href="" class="descItem">
+                            <a href="" class="dropdown-item">
                                 <span>Kontakty</span>
                             </a>
                         </div>
                     </li>
-                    <li class="navBarLi">
+                    <li class="main-nav-item">
                         <span>Zvířátka</span>
-                        <div class="navBarLiDetails">
-                            <a href="" class="descItem">
+                        <div class="main-nav-dropdown">
+                            <a href="" class="dropdown-item">
                                 <span>Všechny zvířátka</span>
                             </a>
-                            <a href="" class="descItem">
+                            <a href="" class="dropdown-item">
                                 <span>Hledají domov</span>
                             </a>
-                            <a href="" class="descItem">
+                            <a href="" class="dropdown-item">
                                 <span>Našly domov</span>
                             </a>
-                            <a href="" class="descItem">
+                            <a href="" class="dropdown-item">
                                 <span>Léčí se</span>
                             </a>
-                            <a href="" class="descItem">
+                            <a href="" class="dropdown-item">
                                 <span>Opustily nás</span>
                             </a>
                         </div>
                     </li>
-                    <li class="navBarLi">
+                    <li class="main-nav-item">
                         <span>Časté dotazy</span>
-                        <div class="navBarLiDetails">
-                            <a href="" class="descItem">
+                        <div class="main-nav-dropdown">
+                            <a href="" class="dropdown-item">
                                 <span>Jak probíhá adopce?</span>
                             </a>
-                            <a href="" class="descItem">
+                            <a href="" class="dropdown-item">
                                 <span>Jak si správně vybrat zvířátko?</span>
                             </a>
-                            <a href="" class="descItem">
+                            <a href="" class="dropdown-item">
                                 <span>Jak se stát opatrovníkem a co to obnáší?</span>
                             </a>
-                            <a href="" class="descItem">
+                            <a href="" class="dropdown-item">
                                 <span>Jak nás můžete podpořit?</span>
                             </a>
                         </div>
                     </li>
-                    <li class="navBarLi">
+                    <li class="main-nav-item">
                         <span>E-shop</span>
-                        <div class="navBarLiDetails">
-                            <a href="" class="descItem">
+                        <div class="main-nav-dropdown">
+                            <a href="" class="dropdown-item">
                                 <span>Dekorace</span>
                             </a>
-                            <a href="" class="descItem">
+                            <a href="" class="dropdown-item">
                                 <span>Chovatelské potřeby</span>
                             </a>
-                            <a href="" class="descItem">
+                            <a href="" class="dropdown-item">
                                 <span>Krmiva</span>
                             </a>
+                        </div>
+                    </li>
+
+                    <li class="cart">
+                        <div class="cart-container">
+                            <span id="cartValue"></span>
+                            <i class="fas fa-shopping-cart"></i>
                         </div>
                     </li>
                 </ul>
             </nav>
         </div>
 
+        <div class="hero-container">
+            <div class="hero-description">
+                <span class="hero-text">Jsme nezisková organizace</span>
+                <span class="hero-text" style="font-size: 2.5rem; margin-left: 30%;">Daisy z.s.</span>
+                <span class="hero-text">Poznejte nás lépe</span>
+            </div>
+        </div>
 
+        <span class="hero-question">Proč byste měli podpořit právě nás?</span>
+
+        <ul class="hero-list">
+            <li class="hero-item">
+                <div class="hero-item-container">
+                    <i class="fa-solid fa-heart hero-icon"></i>
+                    <span class="hero-item-text">O zvířátka se staráme s láskou</span>
+                </div>
+            </li>
+            <li class="hero-item">
+                <div class="hero-item-container">
+                    <i class="fa-solid fa-shield-dog hero-icon"></i>
+                    <span class="hero-item-text">Vyléčili jsme mnoho zvířátek</span>
+                </div>
+            </li>
+            <li class="hero-item">
+                <div class="hero-item-container">
+                    <i class="fa-solid fa-comments hero-icon"></i>
+                    <span class="hero-item-text">Jsme otevření komunikaci</span>
+                </div>
+            </li>
+        </ul>
+        
     </div>
 
     <script src="./scripts/comNameDiv.js"></script>
     <script src="./scripts/comLogo.js"></script>
+    <script src="./scripts/main.js"></script>
 </body>
 </html>

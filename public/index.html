@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./styles/navBar.css">
     <link rel="stylesheet" href="./styles/socialsNavBar.css">
     <link rel="stylesheet" href="./styles/home-page.css">
+    <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="icon" href="./images/daisy-azyl-pos.png">
 </head>
@@ -133,14 +134,16 @@
                 </ul>
             </nav>
         </div>
-
-        <div class="hero-container">
-            <div class="hero-description">
-                <span class="hero-text">Jsme nezisková organizace</span>
-                <span class="hero-text" style="font-size: 2.5rem; margin-left: 30%;">Daisy z.s.</span>
-                <span class="hero-text">Poznejte nás lépe</span>
+        <a href="">
+            <div class="hero-container">
+                <div class="hero-description">
+                    <span class="hero-text">Jsme nezisková organizace</span>
+                    <span class="hero-text" style="font-size: 2.5rem; margin-left: 30%;">Daisy z.s.</span>
+                    <span class="hero-text">pomáháme pejskům a kočičkám v nouzi</span>
+                    <span class="hero-text">Poznejte nás lépe</span>
+                </div>
             </div>
-        </div>
+        </a>
 
         <span class="hero-question">Proč byste měli podpořit právě nás?</span>
 
@@ -165,7 +168,119 @@
             </li>
         </ul>
         
+
+
+        <div class="hero-info-container">
+            <div class="hero-info-content" style="text-align: center;">
+                <com-logo class="hero-img-large"></com-logo>
+
+                <span class="hero-info-span">
+                    Jsme nezisková organizace <b><a href="./index.html">Daisy z. s.</a></b>
+                    a jsme financováni vlastní činností a z drobných darů.
+                </span>
+                <span class="hero-info-span">
+                    Pomáháme pejskům a kočičkám, kteří si zaslouží druhou šanci
+                    <i class="fa fa-heart" style="color: red;"></i>
+                </span>
+            </div>
+
+            <div class="hero-info-content">
+                <fieldset class="hero-info-textfield">
+                    <legend class="hero-info-textfield-legend">Daisy z. s.</legend>
+
+                    <span class="hero-info-span">
+                        <i class="fa fa-vcard-o"></i>
+                        IČ: <a href="">0123456789</a>
+                    </span>
+                    <span class="hero-info-span">
+                        <i class="fa fa-house"></i>
+                        <a href="">falešná 123 Kolín</a>
+                    </span>
+                    <span class="hero-info-span">
+                        <i class="fa fa-phone"></i>
+                        <a href="">605 793 896</a>
+                    </span>
+                    <span class="hero-info-span">
+                        <i class="fa fa-envelope"></i>
+                        <a href="">daisyazyl@gmail.com</a>
+                    </span>
+                    <span class="hero-info-span">
+                        <i class="fa fa-vcard-o"></i>
+                        <a href="">datová schránka: fafg</a>
+                    </span>
+                </fieldset>
+
+            </div>
+            <div class="hero-info-content">
+                <fieldset class="hero-info-textfield">
+                    <legend class="hero-info-textfield-legend">Mohlo by vás zajímat</legend>
+    
+                    <span class="hero-info-span">
+                        <a href="">Kdo jsme</a>
+                    </span>
+                    <span class="hero-info-span">
+                        <a href="">Jak to u nás funguje</a>
+                    </span>
+                    <span class="hero-info-span">
+                        <a href="">Kontakty</a>
+                    </span>
+
+                    <div style="margin-top: 3rem; display: flex; flex-direction: column; gap: inherit;">
+                        <span class="hero-info-span">
+                            <a href="">Prohlášení o cookies</a>
+                        </span>
+                        <span class="hero-info-span">
+                            <a href="">Obchodní podmínky</a>
+                        </span>
+                        <span class="hero-info-span">
+                            <a href="">Platební možnosti</a>
+                        </span>
+                        <span class="hero-info-span">
+                            <a href="">Možnosti doručení</a>
+                        </span>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-main">
+                <span class="footer-heading">@2024 Daisy z.s.</span>
+                
+                <span class="footer-heading">
+                    O zvířátka se staráme s láskou, jakou si zaslouží
+                    <i class="fa fa-heart" style="color: red;"></i>
+                </span>
+            </div>
+            
+            <div class="footer-desc">
+                <div class="footer-content">
+                    <span class="footer-content-heading">Kontakty:</span>
+                    
+                    <span class="footer-content-text">Tel. : 605 793 896</span>
+                    <span class="footer-content-text">E-mail : daisyazyl@gmail.com</span>
+                    <span class="footer-content-text">Facebook : 
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/share/1E15kZAFa9/">
+                            Daisy azyl z. s.
+                        </a>
+                    </span>
+                </div>
+    
+                <div class="footer-content">
+                    <span class="footer-content-heading">Kde nás navštívit?</span>
+                    <span class="footer-content-text">Město: Kolín</span>
+                    <span class="footer-content-text">Adresa : 
+                        <a href="">
+                            falešná 123
+                        </a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
 
     <script src="./scripts/comNameDiv.js"></script>
     <script src="./scripts/comLogo.js"></script>

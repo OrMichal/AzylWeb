@@ -40,7 +40,7 @@
 .hero-text{
     filter: none;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding-left: 2rem;
     filter: none;
     position: relative;
@@ -61,7 +61,7 @@
 }
 
 .hero-item {
-    background-color: violet;
+    background-color: var(--golden-color);
     font-size: 2rem;
     padding: 1rem;
     display: flex;
@@ -89,4 +89,50 @@
 .hero-icon {
     font-size: 2rem;
     color: white;
+}
+
+.hero-info-container{
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    backdrop-filter: blur(9px);
+}
+
+.hero-info-content{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+    color: inherit;
+    padding: 1rem;
+    width: 15rem;
+}
+
+.hero-img-large{
+    padding: 2rem;
+    scale: 2;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-info-span{
+    color: black;
+    font-size: 1rem;
+}
+
+.hero-info-textfield{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: auto;
+    height: 19rem;
+    color: black;
+    padding: 1rem;
+}
+
+.hero-info-textfield-legend{
+    font-size: 1.3rem;
 }

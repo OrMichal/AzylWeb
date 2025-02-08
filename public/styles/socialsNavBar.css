@@ -1,5 +1,5 @@
 .socials-nav {
-    background-color: #605d63; 
+    background-color: var(--gray-color); 
     color: white;
     width: 100%;
     height: auto;

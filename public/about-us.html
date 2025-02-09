@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="./styles/customElementStyles/comndiv.css">
     <link rel="stylesheet" href="./styles/navBar.css">
     <link rel="stylesheet" href="./styles/socialsNavBar.css">
-    <link rel="stylesheet" href="./styles/home-page.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/about-us.css">
+    <link rel="stylesheet" href="./styles/home-page.css">
     <link rel="icon" href="./images/daisy-azyl-pos.png">
 </head>
 <body>
@@ -60,7 +61,7 @@
                         </a>
                     </li>
                     <li class="main-nav-item">
-                        <a href="./about-us.html">O nás</a>
+                        <span>O nás</span>
                         <div class="main-nav-dropdown">
                             <a href="" class="dropdown-item">
                                 <span>Kdo jsme</span>
@@ -74,7 +75,7 @@
                         </div>
                     </li>
                     <li class="main-nav-item">
-                        <a>Zvířátka</a>
+                        <span>Zvířátka</span>
                         <div class="main-nav-dropdown">
                             <a href="" class="dropdown-item">
                                 <span>Všechny zvířátka</span>
@@ -94,7 +95,7 @@
                         </div>
                     </li>
                     <li class="main-nav-item">
-                        <a>Časté dotazy</a>
+                        <span>Časté dotazy</span>
                         <div class="main-nav-dropdown">
                             <a href="" class="dropdown-item">
                                 <span>Jak probíhá adopce?</span>
@@ -111,7 +112,7 @@
                         </div>
                     </li>
                     <li class="main-nav-item">
-                        <a>E-shop</a>
+                        <span>E-shop</span>
                         <div class="main-nav-dropdown">
                             <a href="" class="dropdown-item">
                                 <span>Dekorace</span>
@@ -134,41 +135,65 @@
                 </ul>
             </nav>
         </div>
-        <a href="./about-us.html">
-            <div class="hero-container">
-                <div class="hero-description">
-                    <span class="hero-text">Jsme nezisková organizace</span>
-                    <span class="hero-text" style="font-size: 2.5rem; margin-left: 30%;">Daisy z.s.</span>
-                    <span class="hero-text">pomáháme pejskům a kočičkám v nouzi</span>
-                    <span class="hero-text">Poznejte nás lépe</span>
+
+        <div class="about-welcome-div">
+            <span>
+                <a href="./index.html">Domů</a> / O nás
+            </span>
+
+            <div class="about-welcome-desc-div">
+                <span class="about-welcome-desc-span">Každý pejsek i kočička si zaslouží milující prostředí.</span>
+                <span class="about-welcome-desc-bottom" style="margin-left: auto;">moto naší organizace</span>
+            </div>
+
+            <span class="about-welcome-desc-heading">Kdo jsme?</span>
+            <div class="about-desc-div">
+                <span>Jsme útulek s velkým srdcem, kde se s láskou staráme o opuštěné, týrané a nechtěné pejsky i kočičky. 
+                    Poskytujeme jim bezpečné útočiště, veterinární péči a hlavně spoustu lásky, dokud nenajdou nový domov. 
+                    Naším posláním je dát jim druhou šanci na šťastný život a propojit je s milujícími rodinami. 
+                    Každý chlupáč si zaslouží domov, kde bude v bezpečí a milován – pomozte nám změnit jejich osudy k lepšímu!
+                </span>
+
+                <span>
+                    Jsme azyl Daisy z. s. financován z darů dobrovolníků, a všechny naše výdělky, jdou přímo na léčbu a péči o naše chlupáče <i class="fa fa-heart" style="color: red;"></i>
+                </span>
+
+                <span>Pokud máte zájem, můžete nás 
+                    <a href="" class="support">podpořit <i class="fa fa-heart" style="color: red;"></i></a>
+                </span>
+                <span>Každé podpory si neskutečně vážíme a pomáháte tím chlupáčům, kteří to potřebují</span>
+            </div>
+            
+            <span class="about-welcome-desc-heading">Poznejte nás</span>
+            
+            <div class="people-div">
+                <div class="person-div">    
+                    <img src="" alt="">
+                    <span class="person-name">Ivan Sergejovič</span>
+                    <span class="person-position">ředitel/dobrovolník</span>
+                </div>
+                <div class="person-div">
+                    <img src="" alt="">
+                    <span class="person-name">Ivan Sergejovič</span>
+                    <span class="person-position">ředitel/dobrovolník</span>
+                </div>
+                <div class="person-div">
+                    <img src="" alt="">
+                    <span class="person-name">Ivan Sergejovič</span>
+                    <span class="person-position">ředitel/dobrovolník</span>
+                </div>
+                <div class="person-div">
+                    <img src="" alt="">
+                    <span class="person-name">Ivan Sergejovič</span>
+                    <span class="person-position">ředitel/dobrovolník</span>
+                </div>
+                <div class="person-div">
+                    <img src="" alt="">
+                    <span class="person-name">Ivan Sergejovič</span>
+                    <span class="person-position">ředitel/dobrovolník</span>
                 </div>
             </div>
-        </a>
-
-        <span class="hero-question">Proč byste měli podpořit právě nás?</span>
-
-        <ul class="hero-list">
-            <li class="hero-item">
-                <div class="hero-item-container">
-                    <i class="fa-solid fa-heart hero-icon"></i>
-                    <span class="hero-item-text">O zvířátka se staráme s láskou</span>
-                </div>
-            </li>
-            <li class="hero-item">
-                <div class="hero-item-container">
-                    <i class="fa-solid fa-shield-dog hero-icon"></i>
-                    <span class="hero-item-text">Vyléčili jsme mnoho zvířátek</span>
-                </div>
-            </li>
-            <li class="hero-item">
-                <div class="hero-item-container">
-                    <i class="fa-solid fa-comments hero-icon"></i>
-                    <span class="hero-item-text">Jsme otevření komunikaci</span>
-                </div>
-            </li>
-        </ul>
-        
-
+        </div>
 
         <div class="hero-info-container">
             <div class="hero-info-content" style="text-align: center;">

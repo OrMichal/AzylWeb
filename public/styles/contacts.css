@@ -1,0 +1,53 @@
+.contacts-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.contact-div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-left: 3rem;
+    input{
+        width: 40rem;
+    }
+
+    span{
+        font-size: 1.3rem;
+    }
+
+    textarea{
+        width: 40rem;
+        height: 20rem;
+        resize: none;
+    }
+}
+
+.contact-field{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: auto;
+    padding: 1rem;
+}
+
+.contact-field-legend{
+    font-size: 2rem;
+    align-self: center;
+}
+
+.submition-button{
+    width: auto;
+    padding: 1rem;
+    background-color: rgb(41, 180, 41);
+    border: solid 2px;
+    border-radius: 1rem;
+}

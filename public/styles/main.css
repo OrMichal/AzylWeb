@@ -50,6 +50,10 @@ a{
     *{
         max-width: 60rem;
     }
+    
+    .main-nav{
+        max-width: 100%;
+    }
 }
 
 .content-wrapper{

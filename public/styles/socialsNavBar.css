@@ -1,5 +1,5 @@
 .socials-nav {
-    background-color: var(--gray-color); 
+    background-color: #444; 
     color: white;
     width: 100%;
     height: auto;
@@ -16,18 +16,17 @@
 .socials-list {
     display: flex;
     list-style: none;
-    gap: 0.4rem;
+    gap: 1.5rem;
     padding: 0;
 }
 
 .socials-item{
-    border: solid 1px white;
-    border-radius: 0.3rem;
-    padding: 0.4rem;
+    transition: 200ms ease;
+    scale: 1.5;
 }
 
 .socials-item:hover{
-    background-color: black;
+    transform: translateY(-3px);
     cursor: pointer;
 }
 

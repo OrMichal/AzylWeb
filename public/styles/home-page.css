@@ -1,3 +1,7 @@
+:root {
+    --golden-color: #ffd700;
+}
+
 .hero-container {
     color: inherit;
     width: 60rem;
@@ -13,18 +17,15 @@
     left: 0;
     width: 100%;
     height: 100%;
-
     background-image: url('../images/hero-theme.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
     z-index: -1;
     filter: contrast(1.4);
 }
 
-
-.hero-description{
+.hero-description {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -37,19 +38,18 @@
     padding-top: 30%;
 }
 
-.hero-text{
-    filter: none;
+.hero-text {
     color: white;
     font-size: 1.2rem;
     padding-left: 2rem;
-    filter: none;
     position: relative;
     z-index: 2;
 }
 
-.hero-question{
+.hero-question {
     font-size: 3rem;
     padding: 1rem;
+    text-align: center;
 }
 
 .hero-list {
@@ -58,6 +58,7 @@
     gap: 3rem;
     list-style: none;
     padding: 0;
+    justify-content: center;
 }
 
 .hero-item {
@@ -67,72 +68,59 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
 }
 
 .hero-item-container {
-    height: 100%;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
-    border-radius: 10px;
     gap: 1rem;
-}
-
-.hero-item-text {
-    font-size: 1.3rem;
+    padding: 1rem;
     color: white;
-    text-align: center;
 }
 
 .hero-icon {
     font-size: 2rem;
-    color: white;
 }
 
-.hero-info-container{
-    width: 100%;
-    background-color: transparent;
-    color: white;
+.hero-info-container {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     gap: 2rem;
-    backdrop-filter: blur(9px);
-}
-
-.hero-info-content{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 2rem;
-    color: inherit;
-    padding: 1rem;
-    width: 15rem;
-}
-
-.hero-img-large{
+    margin-top: 2rem;
     padding: 2rem;
-    scale: 2;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
 }
 
-.hero-info-span{
-    color: black;
-    font-size: 1rem;
+.hero-info-content {
+    flex: 1;
+    min-width: 200px;
 }
 
-.hero-info-textfield{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    width: auto;
-    height: 19rem;
-    color: black;
+.hero-info-textfield {
+    border: 1px solid #ddd;
     padding: 1rem;
+    border-radius: 5px;
+    background-color: white;
 }
 
-.hero-info-textfield-legend{
+.hero-info-textfield-legend {
     font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.hero-info-span {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.hero-info-span a {
+    color: var(--golden-color);
+    text-decoration: none;
+}
+
+.hero-info-span a:hover {
+    text-decoration: underline;
 }

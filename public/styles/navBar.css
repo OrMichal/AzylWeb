@@ -9,94 +9,58 @@
     scale: 1;
 }
 
-.main-nav{
-    border: none;
+
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: white;
-    width: 100%;
-    transition: 200ms ease-in-out;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.main-nav-list{
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+.main-nav-list {
     list-style: none;
-    align-items:end;
-    border-bottom: 2px solid;
+    margin: 0;
     padding: 0;
-}
-
-.main-nav-item{
-    width: auto;
-    font-size: 1.6rem;
-    transition: 200ms ease;
-    cursor: pointer;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.main-nav-item::after{
-    content: "<";
-    font-size: 0.8rem;
-}
-
-.main-nav-item:hover{
-    color: var(--golden-color);
-}
-
-.main-nav-item:hover::after{
-    content: "▼";
-    font-size: 0.8rem;
-}
-
-.main-nav-item:hover .main-nav-dropdown{
     display: flex;
-    transition: 200ms ease-in-out;
+    align-items: center;
+    gap: 2rem;
 }
 
-.main-nav-dropdown{
+.main-nav-item {
+    position: relative;
+}
+
+.main-nav-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+}
+
+.main-nav-item:hover .main-nav-dropdown {
+    display: flex;
+}
+
+.main-nav-dropdown {
     display: none;
-    flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 1000;
     background-color: white;
-    font-size: 0.9rem;
-    color: var(--black-color);
-    padding: 0.5rem;
-    border-bottom: solid 4px var(--golden-color);
-
-    .dropdown-item{
-        padding: 0.3rem;
-    }
-
-    .dropdown-item:hover{
-        transition: 200ms ease-in-out;
-        color: var(--golden-color);
-        transform: translateX(0.1rem);
-    }
+    border: 1px solid #ddd;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.cart{
-    width: auto;
-    height: auto;
-    align-self: center;
-    margin-left: auto;
+.dropdown-item {
+    padding: 1rem;
+    text-decoration: none;
+    color: #333;
 }
 
-.cart-container{
-    border: solid 1px;
-    border-radius: 4px;
-    align-self: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 1.4rem;
-    padding: 0.5rem;
-}
-
-.cart-container:hover{
-    cursor: pointer;
+.dropdown-item:hover {
+    background-color: #f4f4f4;
 }

@@ -1,8 +1,8 @@
 :root {
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Arial, sans-serif;
     --golden-color: rgb(179, 118, 27);
     --black-color: black;
-    --gray-color: #605d63;
+    --gray-color: #444;
 }
 
 body {
@@ -31,7 +31,7 @@ body::before {
     background-attachment: fixed;
     background-blend-mode: overlay;
     
-    filter: blur(10px);
+    filter: blur(20px);
     z-index: -1;
 }
 
@@ -41,12 +41,15 @@ a{
     color: inherit;
 }
 
-.main-container{
+.main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.2rem;
-
+    gap: 0rem;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    
     *{
         max-width: 60rem;
     }
@@ -55,7 +58,15 @@ a{
         max-width: 100%;
     }
 }
+/*
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
 
+}
+*/
 .content-wrapper{
     display: flex;
     flex-direction: column;

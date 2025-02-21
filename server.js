@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
 
 const app = express();
 const port = 3000;
@@ -15,3 +16,14 @@ mongoose.connect("mongodb://localhost:27017/dbDaisy")
     .then(() => console.log("connected to mongoDB"))
     .catch((err) => console.log("error occurred during mongo connection",err));
 
+const _mail = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: "email",
+        pass:"password"
+    }
+});
+
+app.post("/sendEmail", (req, res) => {
+    
+});

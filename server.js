@@ -14,3 +14,4 @@ app.listen(port, () => console.log("listening on port: ", port));
 mongoose.connect("mongodb://localhost:27017/dbDaisy")
     .then(() => console.log("connected to mongoDB"))
     .catch((err) => console.log("error occurred during mongo connection",err));
+

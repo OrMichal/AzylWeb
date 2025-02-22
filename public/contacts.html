@@ -152,22 +152,22 @@
                             <legend class="contact-field-legend">Kontaktní formulář</legend>
                             <div class="contact-div">
                                 <span>Vaše jméno:</span>
-                                <input type="text" placeholder="jakým jménem, vás máme oslovovat">
+                                <input id="yourName" type="text" placeholder="jakým jménem, vás máme oslovovat">
                             </div>
                             <div class="contact-div">
                                 <span>E-mailová adresa:</span>
-                                <input type="text" placeholder="na jakém e-mailu vás můžeme kontaktovat">
+                                <input id="mailAddress" type="text" placeholder="na jakém e-mailu vás můžeme kontaktovat">
                             </div>
                             <div class="contact-div">
                                 <span>Telefon:</span>
-                                <input type="text" placeholder="kam vám můžeme zavolat">
+                                <input id="phoneNumber" type="text" placeholder="kam vám můžeme zavolat">
                             </div>
                             <div class="contact-div">
                                 <span>Vzkaz pro nás:</span>
-                                <Textarea placeholder="Zde vložte vzkaz pro nás"></Textarea>
+                                <Textarea id="userMessage" placeholder="Zde vložte vzkaz pro nás"></Textarea>
                             </div>
                         </fieldset>
-                        <div class="submition-button">
+                        <div class="submition-button" id="msgSubmiter">
                             <span>Odeslat zprávu</span>
                         </div>
                     </div>
@@ -291,5 +291,6 @@
     <script src="./scripts/comNameDiv.js"></script>
     <script src="./scripts/comLogo.js"></script>
     <script src="./scripts/navbar-switcher.js"></script>
+    <script src="./scripts/msgSubmitter.js"></script>
 </body>
 </html>

@@ -19,11 +19,32 @@ mongoose.connect("mongodb://localhost:27017/dbDaisy")
 const _mail = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: "email",
-        pass:"password"
+        user: "daisytestmail01@gmail.com",
+        pass:"Dt123456"
     }
 });
 
+_mail.sendMail({
+    from: "daisytestmail01@gmail.com",
+    to: "misaorsah5@gmail.com",
+    subject: "test",
+    text: "testovací zpráva"
+}, (error, info) => error ? console.log(error) : console.log("email sent: ", info.response));
+
 app.post("/sendEmail", (req, res) => {
+    console.log("received request");
     
+    const {Name, Address, PhoneNumber, UserMsg} = req.body.json();
+    _mail.sendMail({
+        from: "daisytestmail01@gmail.com",
+        to: Address,
+        subject: "Received message",
+        text: "Dobrý den, \n přijali jsme vaši zprávu: " + UserMsg
+    }, (error, info) => {
+        if(error){
+            console.log(error);
+            return;
+        }
+        console.log("Email sent: ", info.response);
+    });
 });

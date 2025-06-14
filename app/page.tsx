@@ -2,14 +2,18 @@ import NavBar from "@/client-components/Nav-bar/nav-bar";
 import { HeaderWrapper } from "@/elements/app-header/app-header";
 import { NavBarItemDetail } from "@/elements/nav-bar-item-detail/nav-bar-item-detail";
 import { NavBarItem } from "@/elements/nav-bar-item/nav-bar-item";
-import Link from "next/link";
+import { SocialsLink } from "@/elements/socials-link/socials-link";
+import { faFacebookF } from "@fortawesome/free-brands-svg-icons/faFacebookF";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Home() {
   return (
     <div className="">
       <HeaderWrapper>
-        <div>
-          <p>haha</p>
+        <div className="flex gap-1">
+          <SocialsLink src="https://www.facebook.com/daisyazyl/?locale=cs_CZ">
+            <FontAwesomeIcon icon={faFacebookF} />
+          </SocialsLink>
         </div>
         <div>
           <p>chcete nás podpořit ?</p>
@@ -18,7 +22,7 @@ export default function Home() {
           <p>účet</p>
         </div>
       </HeaderWrapper>
-      
+
       <NavBar>
         <NavBarItem href="animals" title="zvířátka">
           <NavBarItemDetail>

@@ -5,7 +5,7 @@ interface headerElementProps {
 
 export function HeaderWrapper({ children }: headerElementProps) {
   return (
-    <header className="flex justify-around p-3">
+    <header className="flex justify-around p-3 bg-amber-100">
       { children }
     </header>
   );

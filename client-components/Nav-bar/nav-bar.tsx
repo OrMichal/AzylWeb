@@ -7,11 +7,12 @@ interface navbarProps {
 
 export default function NavBar({ children }: navbarProps) {
   return (
-    <nav className="flex flex-row items-center justify-between p-4 shadow">
-      <div className="flex gap-1">
-        <Image src="" />
-        <span>Daisy a. s.</span>
-      </div>
+    <nav className="flex flex-row items-center justify-between p-1 shadow">
+      <Image 
+        src={"/images/daisy-azyl-pos-Photoroom.png"} 
+        width={140} height={200}
+        alt="daisy logo"
+      />
       <div className="flex flex-row">{children}</div>
       <p>košík</p>
     </nav>

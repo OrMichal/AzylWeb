@@ -1,12 +1,13 @@
+import React from "react";
 
 interface NavBarItemDetailProps {
-  text: string
+  children: React.ReactNode;
 }
 
-export function NavBarItemDetail({children} : NavBarItemDetailProps) {
+export function NavBarItemDetail({ children }: NavBarItemDetailProps) {
   return (
     <div className="hover:border-b-yellow-200 hover:border-b-4 hover:cursor-pointer">
-      { children }
+      {children}
     </div>
   );
 }

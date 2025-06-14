@@ -12,8 +12,8 @@ export function NavBarItem({ href, title, children }: NavBarItemProps) {
       <Link href={href}>
         <span>{title}</span>
       </Link>
-      <div>
-        { children }
+      <div className="absolute flex flex-col gap-1 border p-1"> 
+        { children } 
       </div>
     </div>
   );

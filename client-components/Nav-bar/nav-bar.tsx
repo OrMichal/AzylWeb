@@ -12,7 +12,7 @@ export default function NavBar({ children }: navbarProps) {
         <Image src="" />
         <span>Daisy a. s.</span>
       </div>
-      <div className="flex flex-row gap-4">{children}</div>
+      <div className="flex flex-row">{children}</div>
       <p>košík</p>
     </nav>
   );

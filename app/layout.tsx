@@ -56,6 +56,9 @@ export default async function RootLayout({
                 <span>haha</span>
               </NavBarItemDetail>
             </NavBarItem>
+            <NavBarItem title="O nás" href="about"></NavBarItem>
+            <NavBarItem title="Časté dotazy" href="faq"></NavBarItem>
+            <NavBarItem title="E-shop" href="eshop"></NavBarItem>
           </NavBar>
 
           <div className="flex flex-col items-center w-full">{children}</div>

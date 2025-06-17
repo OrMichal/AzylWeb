@@ -10,11 +10,18 @@ export function NavBarItem({ href, title, children }: NavBarItemProps) {
   return (
     <div className="relative group">
       <Link href={href}>
-        <span className="font-bold text-xl hover:text-shadow-lg">{title}</span>
+        <span className="font-bold text-2xl hover:text-shadow-lg">{title}</span>
       </Link>
-      <div className="absolute hidden group-hover:flex flex-col gap-1 border p-1 bg-white shadow-md z-10">
-        {children}
-      </div>
+      {children && (
+        <div
+          className="
+          absolute hidden group-hover:flex flex-col gap-1 border p-1 bg-white shadow-md z-10 w-full
+          text-lg font-semibold
+        "
+        >
+          {children}
+        </div>
+      )}
     </div>
   );
 }

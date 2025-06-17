@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import "./globals.css";
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import { SessionWrapper } from "@/client-components/session-wrapper/session-wrapper";
 import { getServerSession } from "next-auth";
-config.autoAddCss = false
+import NavBar from "@/client-components/Nav-bar/nav-bar";
+import { NavBarItem } from "@/elements/nav-bar-item/nav-bar-item";
+import { NavBarItemDetail } from "@/elements/nav-bar-item-detail/nav-bar-item-detail";
+import { HeaderWrapper } from "@/elements/app-header/app-header";
+import { SocialsLink } from "@/elements/socials-link/socials-link";
+import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SupportButton } from "@/elements/support-button/support-button";
+import { UserBox } from "@/client-components/user-box/user-box";
+import { AppFooter } from "@/elements/app-footer/app-footer";
+config.autoAddCssimport = false;
 
 const quicksand = Quicksand({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'], // podle potřeby
-  variable: '--font-quicksand',
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["400", "500", "700"], // podle potřeby
+  variable: "--font-quicksand",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -28,8 +38,35 @@ export default async function RootLayout({
     <html lang="en" className={`${quicksand.variable} antialiased`}>
       <body>
         <SessionWrapper session={session}>
-          { children }
-        </SessionWrapper>      
+          <HeaderWrapper>
+            <div className="flex gap-2">
+              <SocialsLink src="https://www.facebook.com/daisyazyl/?locale=cs_CZ">
+                <FontAwesomeIcon icon={faFacebookF} width={40} height={40} />
+              </SocialsLink>
+            </div>
+
+            <SupportButton text="Jak nás můžete podpořit?" href="support" />
+
+            <UserBox />
+          </HeaderWrapper>
+
+          <NavBar>
+            <NavBarItem title="Zvířátka" href="animals">
+              <NavBarItemDetail>
+                <span>haha</span>
+              </NavBarItemDetail>
+            </NavBarItem>
+          </NavBar>
+
+          <div className="flex flex-col items-center w-full">{children}</div>
+
+          <AppFooter>
+            <div className="flex flex-col">
+              <span>Možnosti kontaktování</span>
+              <span>haha</span>
+            </div>
+          </AppFooter>
+        </SessionWrapper>
       </body>
     </html>
   );

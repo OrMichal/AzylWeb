@@ -1,45 +1,22 @@
-import NavBar from "@/client-components/Nav-bar/nav-bar";
-import { UserBox } from "@/client-components/user-box/user-box";
-import { AppFooter } from "@/elements/app-footer/app-footer";
-import { HeaderWrapper } from "@/elements/app-header/app-header";
-import { NavBarItemDetail } from "@/elements/nav-bar-item-detail/nav-bar-item-detail";
-import { NavBarItem } from "@/elements/nav-bar-item/nav-bar-item";
-import { SocialsLink } from "@/elements/socials-link/socials-link";
-import { SupportButton } from "@/elements/support-button/support-button";
-import { faFacebookF } from "@fortawesome/free-brands-svg-icons/faFacebookF";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { HeroImageSection } from "@/elements/hero-elements/hero-image-section/hero-image-section";
 
 export default function Home() {
   return (
-    <div className="">
-      <HeaderWrapper>
-        <div className="flex gap-1">
-          <SocialsLink src="https://www.facebook.com/daisyazyl/?locale=cs_CZ">
-            <FontAwesomeIcon icon={faFacebookF} />
-          </SocialsLink>
+    <div className="w-350 flex flex-col items-center">
+      <HeroImageSection src="/images/hero_cat_image.jpg">
+        <div className="flex items-center justify-center w-100 px-6 py-16 backdrop-blur-sm">
+          <div className="text-center text-black max-w-4xl">
+            <h3 className="font-extrabold text-5xl sm:text-6xl mb-6 drop-shadow-lg">
+              Daisy z. s.
+            </h3>
+            <p className="text-xl sm:text-2xl mb-4 leading-relaxed drop-shadow-md">
+              Každý příběh si zaslouží šťastný konec – u nás v Daisy Azylu
+              začíná nový život s nadějí a otevřeným srdcem.
+            </p>
+            <p className="text-lg italic">Přesvědčte se o tom sami.</p>
+          </div>
         </div>
-        <SupportButton text="❤️ Jak nás můžete podpořit?" href="support" />
-        <div>
-          <UserBox/>
-        </div>
-      </HeaderWrapper>
-
-      <NavBar>
-        <NavBarItem href="animals" title="zvířátka">
-          <NavBarItemDetail>
-            <p>haha</p>
-          </NavBarItemDetail>
-          <NavBarItemDetail>
-            <p>lajfkla </p>
-          </NavBarItemDetail>
-        </NavBarItem>
-      </NavBar>
-
-      <AppFooter>
-        <div>
-            Daisy a. z.
-        </div>
-      </AppFooter>
+      </HeroImageSection>
     </div>
   );
 }

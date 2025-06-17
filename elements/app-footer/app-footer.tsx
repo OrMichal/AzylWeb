@@ -9,9 +9,11 @@ interface AppFooterProps {
 export function AppFooter({ children }: AppFooterProps) {
   return (
     <footer  
-      className="p-3 bg-amber-400 flex justify-between"
+      className="p-3 bg-amber-400 flex flex-col items-center "
     >
-      { children }
+      <div className="flex justify-between w-350">
+        { children }
+      </div>
     </footer>
   );
 }

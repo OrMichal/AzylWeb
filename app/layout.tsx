@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SupportButton } from "@/elements/support-button/support-button";
 import { UserBox } from "@/client-components/user-box/user-box";
 import { AppFooter } from "@/elements/app-footer/app-footer";
+import Link from "next/link";
 config.autoAddCssimport = false;
 
 const quicksand = Quicksand({
@@ -51,12 +52,19 @@ export default async function RootLayout({
           </HeaderWrapper>
 
           <NavBar>
+            <NavBarItem title="O nás" href="about">
+              <NavBarItemDetail>
+                <Link href={"a"}>Kdo jsme</Link>
+              </NavBarItemDetail>
+              <NavBarItemDetail>
+                <Link href={"b"}>Jak to u nás funguje</Link>
+              </NavBarItemDetail>
+            </NavBarItem>
             <NavBarItem title="Zvířátka" href="animals">
               <NavBarItemDetail>
                 <span>haha</span>
               </NavBarItemDetail>
             </NavBarItem>
-            <NavBarItem title="O nás" href="about"></NavBarItem>
             <NavBarItem title="Časté dotazy" href="faq"></NavBarItem>
             <NavBarItem title="E-shop" href="eshop"></NavBarItem>
           </NavBar>

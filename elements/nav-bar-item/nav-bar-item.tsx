@@ -3,7 +3,7 @@ import Link from "next/link";
 interface NavBarItemProps {
   href: string;
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function NavBarItem({ href, title, children }: NavBarItemProps) {
@@ -15,8 +15,8 @@ export function NavBarItem({ href, title, children }: NavBarItemProps) {
       {children && (
         <div
           className="
-          absolute hidden group-hover:flex flex-col gap-1 border p-1 bg-white shadow-md z-10 w-full
-          text-lg font-semibold
+          absolute hidden group-hover:flex flex-col gap-2 p-4 bg-white shadow-md z-10 w-30
+          text-lg font-semibold transition-all
         "
         >
           {children}

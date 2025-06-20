@@ -1,7 +1,4 @@
-import { ObjectId } from "mongoose";
-
-export interface IEmployee {
-  _id: string;
+export interface IEmployeeDTO {
   firstname: string;
   middlename: string | null;
   lastname: string;

@@ -8,6 +8,7 @@ const EmployeeSchema = new Schema<IEmployee>(
     lastname: { type: String, required: true },
     role: { type: String, required: true },
     telephone_number: { type: String, required: true },
+    image_guid: { type: String },
   },
   { collection: "employees" },
 );

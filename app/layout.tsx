@@ -16,7 +16,6 @@ import { SupportButton } from "@/elements/support-button/support-button";
 import { UserBox } from "@/client-components/user-box/user-box";
 import { AppFooter } from "@/elements/app-footer/app-footer";
 import Link from "next/link";
-config.autoAddCssimport = false;
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -58,6 +57,9 @@ export default async function RootLayout({
               </NavBarItemDetail>
               <NavBarItemDetail>
                 <Link href={"b"}>Jak to u nás funguje</Link>
+              </NavBarItemDetail>
+              <NavBarItemDetail>
+                <Link href={"about/contact"}>Kontakt</Link>
               </NavBarItemDetail>
             </NavBarItem>
             <NavBarItem title="Zvířátka" href="animals">

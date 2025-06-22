@@ -16,7 +16,7 @@ export function NavBarItem({ href, title, children }: NavBarItemProps) {
         <div
           className="
           absolute hidden group-hover:flex flex-col gap-2 p-4 bg-white shadow-md z-10 w-30
-          text-lg font-semibold transition-all
+          text-sm font-light transition-all
         "
         >
           {children}

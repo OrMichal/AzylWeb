@@ -6,15 +6,19 @@ export function UserBox() {
   const { data: session, status } = useSession();
 
   if (status === "loading") {
-    return <div><span> Načítání... </span></div>;
+    return (
+      <div>
+        <span> Načítání... </span>
+      </div>
+    );
   }
 
   if (!session) {
     return (
       <Link href="/authentication/login">
-        <div 
+        <div
           className="
-            shadow p-1 pl-2 pr-2 rounded-lg bg-amber-400
+            shadow p-1 pl-2 pr-2 rounded-full bg-amber-400
             hover:bg-amber-300
           "
         >
@@ -26,4 +30,3 @@ export function UserBox() {
 
   return <p>aha, přihlášen jako {session.user.email}</p>;
 }
-

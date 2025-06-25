@@ -3,7 +3,7 @@ import { ContentDescription } from "@/client-components/content-description/cont
 
 export default function ContactPage() {
   return (
-    <div className="w-350 pt-10 pb-10">
+    <div className="w-350 pt-10 pb-10 flex flex-col gap-10 ">
       <ContentDescription heading="Kontakty">
         <span>
           Na této stránce máte možnost různých komunikačních kanálů, přes které
@@ -11,7 +11,15 @@ export default function ContactPage() {
           kontaktní formulář i případné emailové či datové zprávy.
         </span>
       </ContentDescription>
-      <ContactForm />
+      <div className="flex w-full justify-center">
+        <ContactForm />
+      </div>
+      <ContentDescription heading="Průbeh kontaktování">
+        <span>
+          Po kliknutí na tlačítko "Odeslat zprávu" vám i nám přijde e-mail o
+          přijaté zprávě a my se poté můžeme případně k vaší zprávě vyjádřit.
+        </span>
+      </ContentDescription>
     </div>
   );
 }

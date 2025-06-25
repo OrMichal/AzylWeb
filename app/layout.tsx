@@ -71,7 +71,9 @@ export default async function RootLayout({
             <NavBarItem title="E-shop" href="eshop"></NavBarItem>
           </NavBar>
 
-          <div className="flex flex-col items-center w-full">{children}</div>
+          <div className="flex flex-col items-center w-full min-h-dvh">
+            {children}
+          </div>
 
           <AppFooter>
             <div className="flex flex-col">

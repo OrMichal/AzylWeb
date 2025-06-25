@@ -5,12 +5,12 @@ interface ContentDescriptionProps {
   children: React.ReactNode;
 }
 
-export function ContentDescription({
+export function ContentDescriptionShadowed({
   heading,
   children,
 }: ContentDescriptionProps) {
   return (
-    <div className="w-full flex flex-col gap-3 items-start p-3 rounded-3xl">
+    <div className="w-full flex flex-col gap-3 items-start shadow p-3 rounded-3xl">
       <h3 className="text-2xl font-light">{heading}</h3>
       <div className="p-1 font-extralight">{children}</div>
     </div>

@@ -10,8 +10,8 @@ export function SupportButton({ text, href }: SupportButtonProps) {
     <Link href={href}>
       <div
         className="
-          border rounded-lg pt-1 pb-1 p-4 shadow-md border-gray-300 
-          hover:bg-pink-500 hover:text-white transition-colors hover:shadow-xl hover:translate-y-[-3px]
+          border rounded-full pt-1 pb-1 p-4 shadow-md border-gray-300
+          hover:bg-pink-500 hover:text-white transition-colors hover:shadow-xl
         "
       >
         <span className="font-bold">{text}</span>

@@ -1,8 +1,9 @@
 "use client";
+import { AppButton } from "@/elements/app-button/app-button";
 import { AppTextInput } from "@/elements/app-text-input/app-text-input";
 import { AppTextarea } from "@/elements/app-textarea/app-textarea";
 import { IContactFormData } from "@/interfaces/request-interfaces/contact-form-data/contact-form-data";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 export function ContactForm() {
   const [formData, setFormData] = useState<IContactFormData>({
@@ -12,9 +13,17 @@ export function ContactForm() {
     message: "",
   });
 
+  const SendMessage = (e: FormEvent) => {
+    e.preventDefault();
+    console.log("message sent: ", formData);
+  };
+
   return (
-    <form className="p-2 shadow flex flex-col gap-2 w-150">
-      <h3 className="font-medium text-2xl">Kontaktní formulář</h3>
+    <form
+      className="p-5 shadow flex flex-col gap-2 w-150 rounded-3xl"
+      onSubmit={(e) => SendMessage(e)}
+    >
+      <h3 className="font-medium text-2xl text-center">Kontaktní formulář</h3>
       <div className="flex flex-col pt-3 pb-3">
         <AppTextInput
           value={formData.name}
@@ -37,7 +46,7 @@ export function ContactForm() {
         <AppTextInput
           value={formData.telephone}
           type="text"
-          placeholder="napište svůje telefonní číslo"
+          placeholder="napište svoje telefonní číslo"
           label="Vaše telefoní číslo:"
           onValueChanged={(d: string): void =>
             setFormData({ ...formData, telephone: d })
@@ -50,6 +59,11 @@ export function ContactForm() {
           onValueChanged={(d: string): void =>
             setFormData({ ...formData, message: d })
           }
+        />
+        <AppButton
+          className="w-80 ml-auto mr-auto mt-8"
+          label="Odeslat zprávu"
+          type="submit"
         />
       </div>
     </form>

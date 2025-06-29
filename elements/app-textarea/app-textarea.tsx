@@ -19,7 +19,7 @@ export function AppTextarea({
     <div className="p-2 flex flex-col gap-3">
       <label>{label}</label>
       <textarea
-        className="resize-y border border-gray-300 p-2 rounded-2xl"
+        className="resize-y border border-gray-300 p-2 rounded-2xl min-h-20"
         placeholder={placeholder}
         onChange={(d: ChangeEvent<HTMLTextAreaElement>): void =>
           onValueChanged(d.target.value)

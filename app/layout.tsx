@@ -53,10 +53,10 @@ export default async function RootLayout({
           <NavBar>
             <NavBarItem title="O nás" href="about">
               <NavBarItemDetail>
-                <Link href={"about"}>Kdo jsme</Link>
+                <Link href={"./"}>Kdo jsme</Link>
               </NavBarItemDetail>
               <NavBarItemDetail>
-                <Link href={"b"}>Jak to u nás funguje</Link>
+                <Link href={"./b"}>Jak to u nás funguje</Link>
               </NavBarItemDetail>
               <NavBarItemDetail>
                 <Link href={"about/contact"}>Kontakt</Link>

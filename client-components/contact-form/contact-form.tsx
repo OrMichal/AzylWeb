@@ -20,10 +20,10 @@ export function ContactForm() {
 
   return (
     <form
-      className="p-5 shadow flex flex-col gap-2 w-150 rounded-3xl"
+      className="p-5 shadow flex flex-col gap-2 w-250 rounded-3xl"
       onSubmit={(e) => SendMessage(e)}
     >
-      <h3 className="font-medium text-2xl text-center">Kontaktní formulář</h3>
+      <h3 className="font-medium text-2xl text-left">Kontaktní formulář</h3>
       <div className="flex flex-col pt-3 pb-3">
         <AppTextInput
           value={formData.name}

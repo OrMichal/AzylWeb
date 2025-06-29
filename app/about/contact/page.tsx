@@ -11,15 +11,17 @@ export default function ContactPage() {
           kontaktní formulář i případné emailové či datové zprávy.
         </span>
       </ContentDescription>
-      <div className="flex w-full justify-center">
+      <div className="flex w-full justify-center gap-4">
         <ContactForm />
+        <ContentDescription heading="Průběh kontaktování">
+          <span>
+            Po vyplnění kontaktního formuláře vlevo a po kliknutí na tlačítko
+            "Odeslat zprávu" dostaneve vaši zprávu prostřednictvím e-mailu. V
+            případě, že by nastala jakákoliv chyba, napište nám na emailovou
+            adresu: daisyazyl.support@gmail.com.
+          </span>
+        </ContentDescription>
       </div>
-      <ContentDescription heading="Průbeh kontaktování">
-        <span>
-          Po kliknutí na tlačítko "Odeslat zprávu" vám i nám přijde e-mail o
-          přijaté zprávě a my se poté můžeme případně k vaší zprávě vyjádřit.
-        </span>
-      </ContentDescription>
     </div>
   );
 }

@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="w-350 flex flex-col items-center mt-10 mb-10 gap-5">
+    <div className="w-full flex flex-col items-center mb-10 gap-5">
       <Link href={"about"}>
         <div className="p-4 shadow-xl w-250 hover:shadow-2xl transition-shadow">
           <HeroImageSection src="/images/hero_cat_image.jpg">

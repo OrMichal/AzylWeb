@@ -16,6 +16,9 @@ import { SupportButton } from "@/elements/support-button/support-button";
 import { UserBox } from "@/client-components/user-box/user-box";
 import { AppFooter } from "@/elements/app-footer/app-footer";
 import Link from "next/link";
+import { Toaster } from "react-hot-toast";
+import { QueryWrapper } from "@/client-components/query-wrapper/query-wrapper";
+import { Breadcrumbs } from "@/elements/breadcrump/breadcrump";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -37,6 +40,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${quicksand.variable} antialiased`}>
       <body>
+        <Toaster position="top-right" reverseOrder={false} />
         <SessionWrapper session={session}>
           <HeaderWrapper>
             <div className="flex gap-2">
@@ -44,35 +48,16 @@ export default async function RootLayout({
                 <FontAwesomeIcon icon={faFacebookF} width={40} height={40} />
               </SocialsLink>
             </div>
-
             <SupportButton text="Jak nás můžete podpořit?" href="support" />
-
             <UserBox />
           </HeaderWrapper>
-
-          <NavBar>
-            <NavBarItem title="O nás" href="about">
-              <NavBarItemDetail>
-                <Link href={"./"}>Kdo jsme</Link>
-              </NavBarItemDetail>
-              <NavBarItemDetail>
-                <Link href={"./b"}>Jak to u nás funguje</Link>
-              </NavBarItemDetail>
-              <NavBarItemDetail>
-                <Link href={"about/contact"}>Kontakt</Link>
-              </NavBarItemDetail>
-            </NavBarItem>
-            <NavBarItem title="Zvířátka" href="animals">
-              <NavBarItemDetail>
-                <span>haha</span>
-              </NavBarItemDetail>
-            </NavBarItem>
-            <NavBarItem title="Časté dotazy" href="faq"></NavBarItem>
-            <NavBarItem title="E-shop" href="eshop"></NavBarItem>
-          </NavBar>
+          <NavBar />
 
           <div className="flex flex-col items-center w-full min-h-dvh">
-            {children}
+            <div className="w-350 pb-10 pt-10">
+              <Breadcrumbs className="mr-auto mb-4" />
+              <QueryWrapper>{children}</QueryWrapper>
+            </div>
           </div>
 
           <AppFooter>

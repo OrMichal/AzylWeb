@@ -3,7 +3,10 @@ import { AppButton } from "@/elements/app-button/app-button";
 import { AppTextInput } from "@/elements/app-text-input/app-text-input";
 import { AppTextarea } from "@/elements/app-textarea/app-textarea";
 import { IContactFormData } from "@/interfaces/request-interfaces/contact-form-data/contact-form-data";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { toASCII } from "punycode";
+import { FormEvent, useState } from "react";
+import toast, { useToaster } from "react-hot-toast";
 
 export function ContactForm() {
   const [formData, setFormData] = useState<IContactFormData>({
@@ -12,11 +15,22 @@ export function ContactForm() {
     telephone: "",
     message: "",
   });
-
   const SendMessage = (e: FormEvent) => {
     e.preventDefault();
-    console.log("message sent: ", formData);
+    MailMutation.mutate();
   };
+
+  const MailMutation = useMutation({
+    mutationKey: ["mail-muatation"],
+    mutationFn: () =>
+      fetch(`http://localhost:3000/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      }),
+    onError: () => toast.error("Nepodařilo se poslat e-mail"),
+    onSuccess: () => toast.success("E-mail byl úspěšně odeslán"),
+  });
 
   return (
     <form

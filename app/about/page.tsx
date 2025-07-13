@@ -1,3 +1,4 @@
+import { ContentDescriptionShadowed } from "@/elements/content-description-shadowed/content-description-shadowed";
 import { CompanyEmployees } from "@/server-components/compane-employees/company-employees";
 
 export default function AboutPage() {
@@ -11,16 +12,20 @@ export default function AboutPage() {
         <span className="text-sm">Daisy z. s.</span>
       </div>
 
-      <div className="flex flex-col gap-4 items-left w-full">
-        <span className="text-3xl">Kdo jsme ?</span>
-        <div className="p-8 shadow rounded-lg w-full">
-          <span>
-            Jsme velci milovníci všech zvířátek, hlavně tedy pejsků a kočiček.
-            Bohužel né každému zvířátku se dostane dostatečné péče a od toho
-            jsme tady my.
-          </span>
-        </div>
-      </div>
+      <ContentDescriptionShadowed heading="Kdo jsme?" id="whoweare">
+        <span>
+          Jsme velci milovníci všech zvířátek, hlavně tedy pejsků a kočiček.
+          Bohužel né každému zvířátku se dostane dostatečné péče a od toho jsme
+          tady my.
+        </span>
+      </ContentDescriptionShadowed>
+
+      <ContentDescriptionShadowed
+        heading="Jak to u nás funguje?"
+        id="jaktofunguje"
+      >
+        <span>Na doplnění této části se stále pracuje -Alan ze sklepa :)</span>
+      </ContentDescriptionShadowed>
 
       <div className="flex flex-col gap-4 items-left w-full">
         <span className="text-3xl font-semibold">Lidé v azylu</span>

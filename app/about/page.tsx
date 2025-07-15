@@ -1,5 +1,6 @@
 import { ContentDescriptionShadowed } from "@/elements/content-description-shadowed/content-description-shadowed";
-import { CompanyEmployees } from "@/server-components/compane-employees/company-employees";
+import { ContentDescriptionPlaceholder } from "@/elements/placeholders/content-description-placeholder/content-description-placeholder";
+import { CompanyEmployees } from "@/server-components/company-employees/company-employees";
 
 export default function AboutPage() {
   return (

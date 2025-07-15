@@ -10,7 +10,7 @@ import { NavBarItem } from "@/elements/nav-bar-item/nav-bar-item";
 import { NavBarItemDetail } from "@/elements/nav-bar-item-detail/nav-bar-item-detail";
 import { HeaderWrapper } from "@/elements/app-header/app-header";
 import { SocialsLink } from "@/elements/socials-link/socials-link";
-import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SupportButton } from "@/elements/support-button/support-button";
 import { UserBox } from "@/client-components/user-box/user-box";
@@ -19,6 +19,12 @@ import Link from "next/link";
 import { Toaster } from "react-hot-toast";
 import { QueryWrapper } from "@/client-components/query-wrapper/query-wrapper";
 import { Breadcrumbs } from "@/elements/breadcrump/breadcrump";
+import {
+  faContactBook,
+  faEnvelope,
+  faFolder,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -42,15 +48,6 @@ export default async function RootLayout({
       <body>
         <Toaster position="top-right" reverseOrder={false} />
         <SessionWrapper session={session}>
-          <HeaderWrapper>
-            <div className="flex gap-2">
-              <SocialsLink src="https://www.facebook.com/daisyazyl/?locale=cs_CZ">
-                <FontAwesomeIcon icon={faFacebookF} width={40} height={40} />
-              </SocialsLink>
-            </div>
-            <SupportButton text="Jak nás můžete podpořit?" href="support" />
-            <UserBox />
-          </HeaderWrapper>
           <NavBar />
 
           <div className="flex flex-col items-center w-full min-h-dvh">
@@ -61,9 +58,40 @@ export default async function RootLayout({
           </div>
 
           <AppFooter>
-            <div className="flex flex-col">
-              <span>Možnosti kontaktování</span>
-              <span>haha</span>
+            <div className="flex flex-col gap-2">
+              <span>Možnosti kontaktování:</span>
+              <div className="flex flex-col gap-3 *:hover:underline *:hover:text-blue-400">
+                <Link
+                  target="_blank"
+                  href={"https://www.facebook.com/daisyazyl/?locale=cs_CZ"}
+                  className="flex items-center gap-2 text-white"
+                >
+                  <FontAwesomeIcon icon={faFacebook} />
+                  <span>Facebook: Daisy azyl z. s.</span>
+                </Link>
+                <span className="flex items-center gap-2 text-white">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                  <span>Email: daisyazyl@seznam.cz</span>
+                </span>
+                <span className="flex items-center gap-2 text-white">
+                  <FontAwesomeIcon icon={faPhone} />
+                  <span>Telefonní číslo: 111 222 333</span>
+                </span>
+                <Link
+                  href={"/about/contact"}
+                  className="flex items-center gap-2 text-white"
+                >
+                  <FontAwesomeIcon icon={faContactBook} />
+                  <span>Náš kontaktní formulář</span>
+                </Link>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span>Informace o nás</span>
+              <div className="flex flex-col p-2 gap-3 *:hover:underline *:hover:text-blue-400">
+                <Link href={"/about"}>Kdo jsme</Link>
+                <Link href={"/about#howitworks"}>Jak to u nás funguje</Link>
+              </div>
             </div>
           </AppFooter>
         </SessionWrapper>

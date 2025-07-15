@@ -1,16 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
-import { existsSync, createReadStream } from "fs";
+import { existsSync, createReadStream, ReadStream } from "fs";
 import path from "path";
 import { MongoConnect } from "@/lib/mongoose/mongoose";
 import { GetEmployeeById } from "@/services/Employee-service/employee-service";
 
-async function* nodeStreamToIterator(stream: fs.ReadStream) {
+export async function* nodeStreamToIterator(stream: ReadStream) {
   for await (const chunk of stream) {
     yield new Uint8Array(chunk);
   }
 }
 
-function iteratorToStream(iterator: AsyncIterator<Uint8Array>) {
+export function iteratorToStream(iterator: AsyncIterator<Uint8Array>) {
   return new ReadableStream<Uint8Array>({
     async pull(controller) {
       const { value, done } = await iterator.next();
@@ -33,8 +33,6 @@ export async function GET(
     "database/employee-images",
     id + ".jpg",
   );
-
-  console.log(filepath);
 
   if (!existsSync(filepath)) {
     return NextResponse.json({ message: "image not found" }, { status: 404 });

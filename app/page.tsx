@@ -1,5 +1,8 @@
+import { HeroSection } from "@/client-components/hero-section/hero-section";
 import { BasicInfoCard } from "@/elements/basic-info-card/basic-info-card";
 import { HeroImageSection } from "@/elements/hero-elements/hero-image-section/hero-image-section";
+import { FormPlaceholder } from "@/elements/placeholders/form-placeholder/form-placeholder";
+import { GridPlaceholder } from "@/elements/placeholders/grid-placeholder/grid-placeholder";
 import {
   faCommenting,
   faHeart,
@@ -10,25 +13,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="w-full flex flex-col items-center mb-10 gap-5">
-      <Link href={"about"}>
-        <div className="p-4 shadow-xl w-250 hover:shadow-2xl transition-shadow">
-          <HeroImageSection src="/images/hero_cat_image.jpg">
-            <div className="flex items-center justify-center w-full px-6 py-16 backdrop-blur-sm">
-              <div className="text-center text-black max-w-4xl">
-                <h3 className="font-extrabold text-5xl sm:text-6xl mb-6 drop-shadow-lg">
-                  Daisy z. s.
-                </h3>
-                <p className="text-xl sm:text-2xl mb-4 leading-relaxed drop-shadow-md">
-                  Každý příběh si zaslouží šťastný konec – u nás v Daisy Azylu
-                  začíná nový život s nadějí a otevřeným srdcem.
-                </p>
-                <p className="text-lg italic">Přesvědčte se o tom sami.</p>
-              </div>
-            </div>
-          </HeroImageSection>
-        </div>
-      </Link>
-      <div className="relative flex gap-3 w-350">
+      <HeroSection />
+      <div className="relative flex gap-3 w-full">
         <BasicInfoCard icon={faHeart}>
           <span className="text-wrap">
             O zvířátka se staráme s láskou, jakou si zaslouží.
@@ -43,16 +29,6 @@ export default function Home() {
           <span className="text-wrap">Jsme otevření jakékoliv komunikaci.</span>
         </BasicInfoCard>
       </div>
-
-      <Link
-        href={"about"}
-        className="
-          p-4 mt-5 mb-5 rounded-xl shadow w-80 flex flex-col items-center bg-amber-100
-          hover:bg-amber-300 transition-colors hover:font-bold hover:cursor-pointer
-        "
-      >
-        <span>Poznejte nás lépe</span>
-      </Link>
     </div>
   );
 }

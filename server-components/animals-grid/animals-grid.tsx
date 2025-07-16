@@ -1,5 +1,4 @@
 import { IAnimal } from "@/models/animal/animal";
-import { GetAnimalDTO } from "@/services/animal-service/animalDTO.service";
 import { GetAllAnimals } from "@/services/animal-service/animals.service";
 import { AnimalCard } from "../Animal-card/animal-card";
 import Link from "next/link";

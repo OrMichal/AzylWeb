@@ -1,8 +1,5 @@
 import { HeroSection } from "@/client-components/hero-section/hero-section";
 import { BasicInfoCard } from "@/elements/basic-info-card/basic-info-card";
-import { HeroImageSection } from "@/elements/hero-elements/hero-image-section/hero-image-section";
-import { FormPlaceholder } from "@/elements/placeholders/form-placeholder/form-placeholder";
-import { GridPlaceholder } from "@/elements/placeholders/grid-placeholder/grid-placeholder";
 import {
   faCommenting,
   faHeart,

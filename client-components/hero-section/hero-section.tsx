@@ -1,9 +1,3 @@
-import {
-  faArrowDown,
-  faChevronDown,
-  faHeart,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,8 +7,8 @@ export function HeroSection() {
       <div className="flex flex-col items-start gap-6 w-150">
         <h1 className="text-6xl font-medium">Daisy z. s.</h1>
         <span className="text-xl mt-15">
-          Jsme nezisková organizace, která se snaží poskytnout druhou šanci na
-          život zvířátům, které v životě toliš stěstí neměla.
+          Poskytujeme azyl hendikepovaným, týraným, starým a nemocným pejskům a
+          kočičkám 🐕🐈
         </span>
         <Link
           href="/about"

@@ -12,8 +12,12 @@ export interface IProduct extends Document {
 
 const ProductSchema = new Schema<IProduct>(
   {
-    productType: { ref: "productType", required: true },
-    animalTargetType: { ref: "animalTypes", required: true },
+    productType: { type: Types.ObjectId, ref: "productType", required: true },
+    animalTargetType: {
+      type: Types.ObjectId,
+      ref: "animalTypes",
+      required: true,
+    },
     name: { type: String, required: true },
     originalPrice: { type: Number, required: true },
     salePrice: { type: Number },

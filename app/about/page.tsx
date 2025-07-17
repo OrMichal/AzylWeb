@@ -12,7 +12,6 @@ export default function AboutPage() {
         </span>
         <span className="text-sm">Daisy z. s.</span>
       </div>
-
       <ContentDescriptionShadowed heading="Kdo jsme?" id="whoweare">
         <span>
           Jsme velci milovníci všech zvířátek, hlavně tedy pejsků a kočiček.
@@ -20,14 +19,12 @@ export default function AboutPage() {
           tady my.
         </span>
       </ContentDescriptionShadowed>
-
       <ContentDescriptionShadowed
         heading="Jak to u nás funguje?"
         id="jaktofunguje"
       >
-        <span>Na doplnění této části se stále pracuje -Alan ze sklepa :)</span>
+        <span>Na doplnění této části se stále pracuje</span>
       </ContentDescriptionShadowed>
-
       <div className="flex flex-col gap-4 items-left w-full">
         <span className="text-3xl font-semibold">Lidé v azylu</span>
         <CompanyEmployees />

@@ -11,7 +11,6 @@ export function BasicInfoCard({ children, icon }: BasicInfoCardProps) {
     <div
       className="
         shadow flex gap-14 justify-around items-center h-30 w-full p-8 bg-amber-600 rounded-4xl 
-        hover:shadow-2xl transition-shadow hover:translate-y-[-5px]
       "
     >
       <FontAwesomeIcon

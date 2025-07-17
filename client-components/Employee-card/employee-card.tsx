@@ -9,7 +9,7 @@ interface EmployeeCardProps {
 export function EmployeeCard({ employee }: EmployeeCardProps) {
   return (
     <div
-      className="bg-white border border-[#e6e1d8] rounded-2xl shadow-md p-6 max-w-sm hover:shadow-lg 
+      className="bg-white border border-[#e6e1d8] rounded-4xl shadow-md p-6 max-w-sm hover:shadow-lg 
       transition-shadow duration-200 w-100"
     >
       <div className="flex flex-col items-start space-y-2">

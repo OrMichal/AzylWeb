@@ -4,9 +4,8 @@ import { AppTextInput } from "@/elements/app-text-input/app-text-input";
 import { AppTextarea } from "@/elements/app-textarea/app-textarea";
 import { IContactFormData } from "@/interfaces/request-interfaces/contact-form-data/contact-form-data";
 import { useMutation } from "@tanstack/react-query";
-import { toASCII } from "punycode";
 import { FormEvent, useState } from "react";
-import toast, { useToaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 export function ContactForm() {
   const [formData, setFormData] = useState<IContactFormData>({
@@ -18,6 +17,7 @@ export function ContactForm() {
   const SendMessage = (e: FormEvent) => {
     e.preventDefault();
     MailMutation.mutate();
+    setFormData({ name: "", email: "", telephone: "", message: "" });
   };
 
   const MailMutation = useMutation({

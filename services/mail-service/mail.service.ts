@@ -39,7 +39,8 @@ export function SendContactEmail(contactData: IContactFormData) {
         <blockquote>
           ${contactData.message}
         </blockquote>
-        
+        <p>Toto je automaticky generovaný e-mail.</p>
+        <span>Prosíme abyste na tento e-mail neodpovídali ani na tuto emailovou adresu nic neposílali.</span>
       </div>
     `,
   );

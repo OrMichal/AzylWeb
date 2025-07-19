@@ -1,3 +1,4 @@
+import { ArticlePlaceholder } from "@/elements/article-placeholder/article-placeholder";
 import { ButtonPlaceholder } from "@/elements/placeholders/button-placeholder/button-placeholder";
 import { ContentDescriptionPlaceholder } from "@/elements/placeholders/content-description-placeholder/content-description-placeholder";
 import { FlexBoxPlaceholder } from "@/elements/placeholders/flex-box-placeholder/flex-box-placeholder";
@@ -8,6 +9,9 @@ export default function HomeLoading() {
       <ContentDescriptionPlaceholder />
       <FlexBoxPlaceholder vertical={false} />
       <ButtonPlaceholder />
+      <ArticlePlaceholder />
+      <ArticlePlaceholder />
+      <ArticlePlaceholder />
     </div>
   );
 }

@@ -13,7 +13,7 @@ export function AppFooter() {
   return (
     <footer className="p-3 bg-black text-white flex justify-around ">
       <div className="flex flex-col gap-2">
-        <span>Možnosti kontaktování:</span>
+        <span>Kontakt:</span>
         <div className="flex flex-col gap-3 *:hover:underline *:hover:text-blue-400">
           <Link
             target="_blank"
@@ -38,6 +38,13 @@ export function AppFooter() {
             <FontAwesomeIcon icon={faContactBook} />
             <span>Náš kontaktní formulář</span>
           </Link>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <span>Mohlo by vás zajímat</span>
+        <div className="flex flex-col p-2 gap-3 *:hover:underline *:hover:text-blue-400">
+          <Link href={"/about"}>Jak nás můžete podpořit</Link>
+          <Link href={"/about#howitworks"}>Jak probíhá adopce</Link>
         </div>
       </div>
       <div className="flex flex-col gap-2">

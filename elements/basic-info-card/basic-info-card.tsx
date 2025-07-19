@@ -10,7 +10,7 @@ export function BasicInfoCard({ children, icon }: BasicInfoCardProps) {
   return (
     <div
       className="
-        shadow flex gap-14 justify-around items-center h-30 w-full p-8 bg-amber-600 rounded-4xl 
+        shadow flex gap-14 justify-around items-center h-30 w-full p-8 bg-amber-300 rounded-4xl 
       "
     >
       <FontAwesomeIcon

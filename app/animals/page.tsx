@@ -17,15 +17,9 @@ export default async function Animals() {
 
   return (
     <div className="pt-5 flex flex-col gap-3 w-full items-center">
-      <div className="flex invisible justify-around shadow rounded-xl w-full p-2">
-        <AppRollDownMenu title="Druh">
-          <AppSelect>
-            {animalTypes.map((t) => (
-              <AppOption key={crypto.randomUUID()}>{t.type}</AppOption>
-            ))}
-          </AppSelect>
-        </AppRollDownMenu>
-      </div>
+      <h2 className="text-2xl font-medium">
+        Zvířátka, která prošla naším azylem
+      </h2>
       <AnimalsGrid />
     </div>
   );

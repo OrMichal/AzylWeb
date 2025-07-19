@@ -1,6 +1,6 @@
 export interface IAnimalDTO {
   name: string;
-  age: number;
+  birthDay: string;
   state: string;
   animalType: string;
   imageGuid: string;

@@ -1,8 +1,7 @@
-import { ArticlePlaceholder } from "@/elements/article-placeholder/article-placeholder";
 import { ContentDescriptionShadowed } from "@/elements/content-description-shadowed/content-description-shadowed";
 import { IAnimalDTO } from "@/interfaces/animal/IAnimalDTO";
-import { IAnimalTypeDTO } from "@/interfaces/animal/IAnimalTypeDTO";
 import { IAnimal } from "@/models/animal/animal";
+import { CalcAnimalAge } from "@/server-components/Animal-card/animal-card";
 import { GetAnimalDTO } from "@/services/animal-service/animalDTO.service";
 import { GetAnimalById } from "@/services/animal-service/animals.service";
 import Image from "next/image";
@@ -22,7 +21,7 @@ export default async function AnimalById({ params }: PageProps) {
         <div className="w-120 h-120 relative">
           <Image
             src={`${process.env.NEXT_PUBLIC_API_URL}/api/animals/images/${animalDTO.imageGuid}`}
-            alt=""
+            alt={`daisy azyl ${animalDTO.name} description`}
             fill
             className="rounded-4xl"
           />
@@ -33,7 +32,7 @@ export default async function AnimalById({ params }: PageProps) {
           "
         >
           <span>Jméno: {animalDTO.name}</span>
-          <span>Věk: {animalDTO.age} let</span>
+          <span>Věk: {CalcAnimalAge(animalDTO.birthDay)}</span>
           <span>Typ zvířete: {animalDTO.animalType}</span>
           <span>Stav: {animalDTO.state}</span>
         </div>

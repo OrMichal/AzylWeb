@@ -1,34 +1,48 @@
 import { ContentDescriptionShadowed } from "@/elements/content-description-shadowed/content-description-shadowed";
-import { ContentDescriptionPlaceholder } from "@/elements/placeholders/content-description-placeholder/content-description-placeholder";
 import { CompanyEmployees } from "@/server-components/company-employees/company-employees";
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col items-center gap-12 p-8">
-      <div className="w-350 p-12 bg-amber-400 text-white flex-col flex gap-3 items-center rounded-2xl shadow-lg">
-        <span className="text-2xl font-semibold">
-          Cheme umožnit každému zvířátku, které moc štěstí v životě nemělo,
-          novou šanci na život
-        </span>
-        <span className="text-sm">Daisy z. s.</span>
-      </div>
+    <div className="flex flex-col items-center gap-12 p-8 ">
+      <section className="w-full p-12 bg-amber-400 text-white flex flex-col gap-4 items-center rounded-2xl shadow-lg text-center">
+        <h1 className="text-3xl font-bold">
+          Chceme umožnit každému zvířátku, které nemělo štěstí v životě, novou
+          šanci
+        </h1>
+        <p className="text-lg italic">
+          Daisy z. s. – váš azyl pro pejsky a kočičky
+        </p>
+      </section>
+
       <ContentDescriptionShadowed heading="Kdo jsme?" id="whoweare">
-        <span>
-          Jsme velci milovníci všech zvířátek, hlavně tedy pejsků a kočiček.
-          Bohužel né každému zvířátku se dostane dostatečné péče a od toho jsme
-          tady my.
-        </span>
+        <p className="text-lg font-extralight">
+          Jsme skupina vášnivých milovníků zvířat, kteří věří, že každý tvor si
+          zaslouží lásku, péči a bezpečný domov. Zaměřujeme se především na
+          pejsky a kočičky, kteří prošli těžkými chvílemi – byli týraní,
+          opuštění, hendikepovaní nebo nemocní. Náš azyl je místem, kde jim
+          dáváme druhou šanci, pomáháme s rehabilitací a hledáme pro ně nové
+          rodiny, které je budou milovat tak, jak si zaslouží.
+        </p>
       </ContentDescriptionShadowed>
+
       <ContentDescriptionShadowed
         heading="Jak to u nás funguje?"
         id="jaktofunguje"
       >
-        <span>Na doplnění této části se stále pracuje</span>
+        <p className="text-lg font-extralight">
+          V našem azylu pečujeme o zvířata s maximální péčí a ohledem na jejich
+          zdravotní i psychický stav. Každý nový příchod projde veterinární
+          kontrolou, rehabilitací a individuálním přístupem. Naši dobrovolníci a
+          zaměstnanci jim poskytují nejen zdravotní péči, ale také spoustu lásky
+          a trpělivosti. Postupně zvířátka připravujeme na adopci a snažíme se
+          najít ideální nový domov, kde budou mít šanci na šťastný život.
+        </p>
       </ContentDescriptionShadowed>
-      <div className="flex flex-col gap-4 items-left w-full">
-        <span className="text-3xl font-semibold">Lidé v azylu</span>
+
+      <section className="flex flex-col gap-6 w-full ">
+        <h2 className="text-3xl font-semibold">Lidé v azylu</h2>
         <CompanyEmployees />
-      </div>
+      </section>
     </div>
   );
 }

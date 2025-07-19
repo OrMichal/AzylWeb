@@ -30,6 +30,19 @@ export async function GetAnimalsByType(typeName: string): Promise<IAnimal[]> {
   return animals;
 }
 
+export async function* GetAnimalsByState(
+  state: string,
+  count?: number,
+): AsyncGenerator<IAnimal> {
+  let num: number = 0;
+  for await (const animal of Animal.find<IAnimal>({ state: state })) {
+    if (num == count && num) return;
+
+    yield animal;
+    num++;
+  }
+}
+
 export async function GetAnimalById(id: string): Promise<IAnimal> {
   await MongoConnect();
   const anim: IAnimal | null = await Animal.findOne({ _id: id });

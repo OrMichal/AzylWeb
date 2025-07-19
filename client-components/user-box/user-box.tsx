@@ -1,4 +1,6 @@
 "use client";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 
@@ -16,12 +18,8 @@ export function UserBox() {
   if (!session) {
     return (
       <Link href="/authentication/login">
-        <div
-          className="
-            shadow p-1 pl-2 pr-2 rounded-full bg-amber-400
-            hover:bg-amber-300
-          "
-        >
+        <div className="p-1 pl-2 pr-2 flex gap-2 items-center">
+          <FontAwesomeIcon icon={faUser} />
           <span> Přihlásit se </span>
         </div>
       </Link>

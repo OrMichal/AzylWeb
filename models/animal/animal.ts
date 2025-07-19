@@ -3,7 +3,7 @@ import mongoose, { Schema, Types, Document } from "mongoose";
 export interface IAnimal extends Document {
   name: string;
   state: string;
-  age: number;
+  birthDay: string;
   animalType: Types.ObjectId;
   imageGuid: string;
   description: string;
@@ -12,7 +12,7 @@ export interface IAnimal extends Document {
 
 const AnimalSchema = new Schema<IAnimal>({
   name: { type: String, required: true },
-  age: { type: Number, required: true },
+  birthDay: { type: String, required: true },
   state: { type: String, required: true },
   animalType: {
     type: Schema.Types.ObjectId,

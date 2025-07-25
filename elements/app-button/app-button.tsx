@@ -9,8 +9,8 @@ export function AppButton({ label, className, onClick, type }: AppButtonProps) {
     <button
       onClick={onClick}
       type={type}
-      className={`rounded-full p-3 shadow bg-amber-300 
-        hover:cursor-pointer hover:bg-amber-100 transition-colors
+      className={` rounded-2xl p-3 shadow bg-amber-300 
+        hover:cursor-pointer hover:bg-amber-200 transition-colors
         ${className ?? ""}
       `}
     >

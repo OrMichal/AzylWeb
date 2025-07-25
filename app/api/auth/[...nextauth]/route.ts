@@ -1,32 +1,50 @@
+import { IUser } from "@/models/User/user-model";
+import { GetUserByEmail } from "@/services/user-service/user.service";
+import { compare } from "bcrypt";
+import { ObjectId } from "mongoose";
+import { NextApiRequest, NextApiResponse } from "next";
 import NextAuth, { AuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { MongoConnect } from "@/lib/mongoose/mongoose";
-import { IUser, UserModel } from "@/models/User/user-model";
-import bcrypt from "bcrypt";
-import { JWT } from "next-auth/jwt";
-import { Session } from "next-auth";
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   providers: [
     Credentials({
-      name: "Credentials",
+      name: "credentials",
       credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" },
+        email: {
+          type: "email",
+          label: "Email",
+          placeholder: "johndoe@gmail.com",
+        },
+        password: {
+          type: "password",
+          label: "Password",
+          placeholder: "your password",
+        },
       },
-      async authorize(credentials) {
-        await MongoConnect();
+      authorize: async (creds) => {
+        if (!creds?.email || !creds.password) {
+          throw new Error("Missing credentials");
+        }
 
-        const user: IUser | null = await UserModel.findOne({ email: credentials?.email });
-        if (!user) return null; 
+        const user: IUser = await GetUserByEmail(creds.email);
 
-        const isValid = await bcrypt.compare(credentials!.password, user.password);
-        if (!isValid) return null; 
+        if (!user) {
+          throw new Error("Invalid credentials");
+        }
+
+        const correctPass = await compare(creds.password, user.password);
+
+        if (!correctPass) {
+          throw new Error("Invalid credentials");
+        }
 
         return {
-          id: user._id.toString(),
+          id: (user._id as ObjectId).toString(),
+          name: user.username,
           email: user.email,
-          name: user.firstname,
+          image:
+            "https://fastly.picsum.photos/id/1010/200/300.jpg?hmac=OCwsVZA1224psjwFUcMnXdXvV1pT7KnfC-F5gxK-rg8",
         };
       },
     }),
@@ -35,27 +53,25 @@ export const authOptions: AuthOptions = {
     strategy: "jwt",
   },
   callbacks: {
-    async jwt({ token, user }) : Promise<JWT> {
+    async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.email = user.email;
         token.name = user.name;
+        token.email = user.email;
+        token.picture = user.image;
       }
       return token;
     },
-    async session({ session, token }) : Promise<Session> {
-      if (session.user && token) {
+    async session({ session, token }) {
+      if (token) {
         session.user.id = token.id as string;
-        session.user.email = token.email as string;
-        session.user.name = token.name as string;       
+        session.user.name = token.name!;
+        session.user.email = token.email;
+        session.user.image = token.picture as string;
       }
       return session;
     },
   },
-  pages: {
-    signIn: "/login",
-  },
-  secret: process.env.NEXTAUTH_SECRET,
 };
 
 const handler = NextAuth(authOptions);

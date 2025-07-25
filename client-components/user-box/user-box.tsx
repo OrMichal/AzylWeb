@@ -1,7 +1,8 @@
 "use client";
+import { AppButton } from "@/elements/app-button/app-button";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 export function UserBox() {
@@ -17,7 +18,7 @@ export function UserBox() {
 
   if (!session) {
     return (
-      <Link href="/authentication/login">
+      <Link href="authentication/login">
         <div className="p-1 pl-2 pr-2 flex gap-2 items-center">
           <FontAwesomeIcon icon={faUser} />
           <span> Přihlásit se </span>
@@ -26,5 +27,14 @@ export function UserBox() {
     );
   }
 
-  return <p>aha, přihlášen jako {session.user.email}</p>;
+  return (
+    <details>
+      <summary className="flex gap-2">
+        <FontAwesomeIcon icon={faUser} />
+        <span>{session.user.name}</span>
+      </summary>
+
+      <AppButton label="Odhlásit se" onClick={() => signOut()} />
+    </details>
+  );
 }

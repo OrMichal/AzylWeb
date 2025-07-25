@@ -5,18 +5,10 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { SessionWrapper } from "@/client-components/session-wrapper/session-wrapper";
 import { getServerSession } from "next-auth";
 import NavBar from "@/client-components/Nav-bar/nav-bar";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AppFooter } from "@/elements/app-footer/app-footer";
-import Link from "next/link";
 import { Toaster } from "react-hot-toast";
 import { QueryWrapper } from "@/client-components/query-wrapper/query-wrapper";
 import { Breadcrumbs } from "@/elements/breadcrump/breadcrump";
-import {
-  faContactBook,
-  faEnvelope,
-  faPhone,
-} from "@fortawesome/free-solid-svg-icons";
 
 const quicksand = Quicksand({
   subsets: ["latin"],

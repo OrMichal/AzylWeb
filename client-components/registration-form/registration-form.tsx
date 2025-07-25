@@ -4,6 +4,7 @@ import { AppFormCredential } from "@/elements/app-form-credential/app-form-crede
 import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 import { useMutation } from "@tanstack/react-query";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
@@ -37,7 +38,14 @@ export function RegistrationForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(regData),
       }).then((data) => data.json()),
-    onSuccess: () => toast.success("Registrace proběhla úspěšně"),
+    onSuccess: async () => {
+      toast.success("Registrace proběhla úspěšně");
+      await signIn("credentials", {
+        redirect: false,
+        email: regData.email,
+        password: regData.password,
+      });
+    },
     onError: (e) => toast.error("Něco se pokazilo: " + e),
   });
 

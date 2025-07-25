@@ -1,8 +1,6 @@
 import { HeroSection } from "@/client-components/hero-section/hero-section";
 import { SupportSection } from "@/client-components/support-section/support-section";
 import { BasicInfoCard } from "@/elements/basic-info-card/basic-info-card";
-import { AnimalsFlex } from "@/server-components/animals-flex/animals-flex";
-import { AnimalsShowcase } from "@/server-components/Animals-showcase/animals-showcase";
 import { StatisticsShowcase } from "@/server-components/statistcs-showcase/statistics-showcase";
 import {
   faCommenting,

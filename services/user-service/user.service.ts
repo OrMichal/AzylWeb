@@ -4,8 +4,8 @@ import { MongoConnect } from "@/lib/mongoose/mongoose";
 import { genSalt, hash } from "bcrypt";
 
 export async function GetUserByEmail(email: string): Promise<IUser> {
-  const user: IUser | null = await UserModel.findOne({ email });
-
+  await MongoConnect();
+  const user: IUser | null = await UserModel.findOne({ email: email });
   if (!user) {
     throw new Error("Could not find user");
   }

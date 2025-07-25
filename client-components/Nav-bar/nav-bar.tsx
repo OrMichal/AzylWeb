@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { ShoppingCart } from "../shopping-cart/shopping-cart";
 import { NavBarItem } from "@/elements/nav-bar-item/nav-bar-item";
-import { NavBarItemDetail } from "@/elements/nav-bar-item-detail/nav-bar-item-detail";
 import { UserBox } from "../user-box/user-box";
 import { faHouse } from "@fortawesome/free-solid-svg-icons/faHouse";
 import {
@@ -14,7 +13,7 @@ import {
 
 export default function NavBar() {
   return (
-    <nav className="flex flex-col items-center p-1 shadow">
+    <nav className="flex flex-col items-center p-2 shadow">
       <div className="flex flex-row justify-between w-350 items-center">
         <Link href={"/"}>
           <span className="text-4xl font-light">Daisy z. s.</span>

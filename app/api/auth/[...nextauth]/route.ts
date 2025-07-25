@@ -2,7 +2,6 @@ import { IUser } from "@/models/User/user-model";
 import { GetUserByEmail } from "@/services/user-service/user.service";
 import { compare } from "bcrypt";
 import { ObjectId } from "mongoose";
-import { NextApiRequest, NextApiResponse } from "next";
 import NextAuth, { AuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
@@ -26,15 +25,15 @@ const authOptions: AuthOptions = {
         if (!creds?.email || !creds.password) {
           throw new Error("Missing credentials");
         }
-
+        console.log(creds);
         const user: IUser = await GetUserByEmail(creds.email);
-
+        console.log(user);
         if (!user) {
           throw new Error("Invalid credentials");
         }
 
         const correctPass = await compare(creds.password, user.password);
-
+        console.log(correctPass);
         if (!correctPass) {
           throw new Error("Invalid credentials");
         }
@@ -43,8 +42,7 @@ const authOptions: AuthOptions = {
           id: (user._id as ObjectId).toString(),
           name: user.username,
           email: user.email,
-          image:
-            "https://fastly.picsum.photos/id/1010/200/300.jpg?hmac=OCwsVZA1224psjwFUcMnXdXvV1pT7KnfC-F5gxK-rg8",
+          image: `${process.env.NEXT_PUBLIC_API_URL}/api/users/image/${user.imageGuid}`,
         };
       },
     }),

@@ -22,13 +22,15 @@ export function LoginForm() {
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
     const res = await signIn("credentials", {
+      redirect: false,
       email: formData.email,
       password: formData.password,
     });
 
     if (res?.ok) {
       toast.success("Přihlášení proběhlo úspěšně");
-      redirect("/");
+    } else {
+      toast.error("Něco se pokazilo");
     }
   };
 

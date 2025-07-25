@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
         port: "3000", // optional: only needed if different from 80
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "fastly.picsum.photos",
+      },
     ],
   },
 };

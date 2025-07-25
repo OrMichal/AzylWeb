@@ -1,0 +1,33 @@
+import { NextRequest, NextResponse } from "next/server";
+import { existsSync, createReadStream } from "fs";
+import path from "path";
+import {
+  iteratorToStream,
+  nodeStreamToIterator,
+} from "@/app/api/employees/images/[id]/route";
+
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { id: string } },
+) {
+  const { id } = params;
+  const filepath = path.resolve(
+    process.cwd(),
+    "database/user-images",
+    id + ".jpg",
+  );
+
+  if (!existsSync(filepath)) {
+    return NextResponse.json({ message: "image not found" }, { status: 404 });
+  }
+
+  const nodeStream = createReadStream(filepath);
+  const webStream = iteratorToStream(nodeStreamToIterator(nodeStream));
+
+  return new NextResponse(webStream, {
+    headers: {
+      "Content-Type": "image/jpeg",
+      "Cache-Control": "public, max-age=31536000, immutable",
+    },
+  });
+}

@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { ShoppingCart } from "../shopping-cart/shopping-cart";
 import { NavBarItem } from "@/elements/nav-bar-item/nav-bar-item";
 import { UserBox } from "../user-box/user-box";
 import { faHouse } from "@fortawesome/free-solid-svg-icons/faHouse";
@@ -30,7 +29,6 @@ export default function NavBar() {
           <NavBarItem title="E-shop" icon={faShop} href="/eshop"></NavBarItem>
         </div>
         <div className="flex gap-10 items-center">
-          <ShoppingCart />
           <UserBox />
         </div>
       </div>

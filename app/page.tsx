@@ -1,6 +1,8 @@
+import { ContentDescription } from "@/client-components/content-description/content-description";
 import { HeroSection } from "@/client-components/hero-section/hero-section";
 import { SupportSection } from "@/client-components/support-section/support-section";
 import { BasicInfoCard } from "@/elements/basic-info-card/basic-info-card";
+import { ArticleList } from "@/server-components/Article-list/article-list";
 import { StatisticsShowcase } from "@/server-components/statistcs-showcase/statistics-showcase";
 import {
   faCommenting,
@@ -29,6 +31,9 @@ export default function Home() {
       </div>
       <StatisticsShowcase />
       <SupportSection />
+      <ContentDescription heading="zpravodaj">
+        <ArticleList />
+      </ContentDescription>
     </div>
   );
 }

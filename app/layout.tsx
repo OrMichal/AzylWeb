@@ -30,7 +30,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${quicksand.variable} antialiased`}>
       <body>
-        <Toaster position="top-right" reverseOrder={false} />
+        <Toaster position="top-center" reverseOrder={false} />
         <SessionWrapper session={session}>
           <NavBar />
 

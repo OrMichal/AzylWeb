@@ -29,8 +29,8 @@ export function LoginForm() {
 
     if (res?.ok) {
       toast.success("Přihlášení proběhlo úspěšně");
-    } else {
-      toast.error("Něco se pokazilo");
+    } else if (res?.status === 401) {
+      toast.error("Nesprávné jméno nebo heslo");
     }
   };
 

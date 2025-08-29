@@ -5,6 +5,7 @@ import { UserBox } from "../user-box/user-box";
 import { faHouse } from "@fortawesome/free-solid-svg-icons/faHouse";
 import {
   faDog,
+  faNewspaper,
   faPeopleGroup,
   faQuestionCircle,
   faShop,
@@ -20,6 +21,7 @@ export default function NavBar() {
         <div className="flex flex-row gap-10">
           <NavBarItem title="Domů" icon={faHouse} href="/" />
           <NavBarItem title="O nás" icon={faPeopleGroup} href="/about" />
+          <NavBarItem title="Novinky" icon={faNewspaper} href="/articles" />
           <NavBarItem title="Zvířátka" icon={faDog} href="/animals" />
           <NavBarItem
             title="Časté dotazy"

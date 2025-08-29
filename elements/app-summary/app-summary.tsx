@@ -10,7 +10,7 @@ export function AppSummary({ title, children }: IAppSummaryProps) {
     <details className="w-full rounded-2xl shadow group">
       <summary
         className="font-medium text-xl p-5 rounded-tl-2xl rounded-tr-2xl transition-colors 
-        hover:cursor-pointer group-open:bg-gray-100"
+        hover:cursor-pointer group-open:bg-gray-100 select-none"
       >
         {title}
       </summary>

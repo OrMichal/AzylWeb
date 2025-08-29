@@ -1,6 +1,8 @@
 import { ContentDescription } from "@/client-components/content-description/content-description";
 import { HeroSection } from "@/client-components/hero-section/hero-section";
 import { SupportSection } from "@/client-components/support-section/support-section";
+import { AppButton } from "@/elements/app-button/app-button";
+import { AppLink } from "@/elements/app-link/app-link";
 import { BasicInfoCard } from "@/elements/basic-info-card/basic-info-card";
 import { ArticleList } from "@/server-components/Article-list/article-list";
 import { StatisticsShowcase } from "@/server-components/statistcs-showcase/statistics-showcase";
@@ -31,8 +33,11 @@ export default function Home() {
       </div>
       <StatisticsShowcase />
       <SupportSection />
-      <ContentDescription heading="zpravodaj">
+      <ContentDescription heading="Novinky z azylu">
         <ArticleList />
+        <div className="w-full flex flex-col gap-0 pt-10 items-center relative">
+          <AppLink label="zobrazit více" href="/articles" />
+        </div>
       </ContentDescription>
     </div>
   );

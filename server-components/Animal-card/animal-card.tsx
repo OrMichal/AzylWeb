@@ -7,7 +7,7 @@ interface IAnimalCardProps {
   animal: IAnimal;
 }
 
-export const CalcAnimalAge = (birthdateStr: string): string => {
+export const CalcSinceDate = (birthdateStr: string): string => {
   const year = parseInt(birthdateStr.slice(0, 4), 10);
   const month = parseInt(birthdateStr.slice(4, 6), 10) - 1;
   const day = parseInt(birthdateStr.slice(6, 8), 10);
@@ -58,7 +58,7 @@ export async function AnimalCard({ animal }: IAnimalCardProps) {
         </div>
         <div className="flex flex-col gap-1 w-full flex-wrap mt-2">
           <span>Jméno: {animalDTO.name}</span>
-          <span>Věk: {CalcAnimalAge(animalDTO.birthDay)} </span>
+          <span>Věk: {CalcSinceDate(animalDTO.birthDay)} </span>
           <span>{animalDTO.state}</span>
         </div>
       </div>

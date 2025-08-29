@@ -22,7 +22,7 @@ export function SupportSection() {
             jakékoli podpory ať už finanční nebo v podobě daru.
           </span>
         </div>
-        <AppLink label="Chci vás podpořit" href="/about" />
+        <AppLink label="Chci vás podpořit" href="/about/support" />
       </div>
     </section>
   );

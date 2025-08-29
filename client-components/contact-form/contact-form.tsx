@@ -14,6 +14,7 @@ export function ContactForm() {
     telephone: "",
     message: "",
   });
+
   const SendMessage = (e: FormEvent) => {
     e.preventDefault();
     MailMutation.mutate();

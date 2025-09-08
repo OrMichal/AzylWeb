@@ -1,5 +1,8 @@
 import { IArticle } from "@/models/article/article.model";
-import { GetFilteredArticles } from "@/services/article-service/article.service";
+import {
+  GetArticlePagesCount,
+  GetFilteredArticles,
+} from "@/services/article-service/article.service";
 import {
   GetGeneratorArray,
   GetObjectFromQuery,
@@ -11,14 +14,19 @@ export async function GET(req: NextRequest, res: NextResponse) {
     const params: Record<string, any> = GetObjectFromQuery(
       req.nextUrl.searchParams.toString(),
     );
+
     const articles: IArticle[] = await GetGeneratorArray(
       GetFilteredArticles(params),
     );
 
-    const res: number[] = articles.map(a => )
-
-    NextResponse.json({  });
+    return NextResponse.json(
+      { pages: GetArticlePagesCount(articles) },
+      { status: 200 },
+    );
   } catch (e) {
-    NextResponse.json({ message: "oopsie daisie" });
+    return NextResponse.json(
+      { message: "oopsie daisie " + e },
+      { status: 500 },
+    );
   }
 }

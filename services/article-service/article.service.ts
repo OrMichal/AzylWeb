@@ -1,6 +1,8 @@
 import { MongoConnect } from "@/lib/mongoose/mongoose";
 import { ArticleModel, IArticle } from "@/models/article/article.model";
 
+export const ARTICLES_PER_PAGE: number = 12;
+
 export async function* GetAllArticles(): AsyncGenerator<IArticle> {
   await MongoConnect();
   for await (const article of ArticleModel.find()) {
@@ -8,11 +10,15 @@ export async function* GetAllArticles(): AsyncGenerator<IArticle> {
   }
 }
 
+export function GetArticlePagesCount(articles: IArticle[]): number {
+  return Math.ceil(articles.length / ARTICLES_PER_PAGE);
+}
+
 export async function* GetFilteredArticles(
-  filter: Record<string, any>,
+  filter?: Record<string, any>,
 ): AsyncGenerator<IArticle> {
   await MongoConnect();
-  for await (const article of ArticleModel.find(filter)) {
+  for await (const article of ArticleModel.find(filter || {})) {
     yield article;
   }
 }
@@ -23,7 +29,7 @@ export async function* GetArticlesByPage(
 ): AsyncGenerator<IArticle> {
   for await (const article of ArticleModel.find(filter || {})
     .sort({ createdAt: -1 })
-    .skip((page - 1) * 12)
+    .skip((page - 1) * ARTICLES_PER_PAGE)
     .limit(12)) {
     yield article;
   }

@@ -1,7 +1,20 @@
-export default function NewsletterPage() {
+import { ArticlePages } from "@/client-components/Article-pages/article-pages";
+import {
+  ArticleGrid,
+  ISearchParamsAsyncComponent,
+} from "@/server-components/Article-grid/article-grid";
+import { GetStringFromSearchParams } from "@/services/core-service/core.service";
+import { ReadonlyURLSearchParams } from "next/navigation";
+
+export default function NewsletterPage({
+  searchParams,
+}: ISearchParamsAsyncComponent) {
+  const params = new URLSearchParams();
+  const filter = GetStringFromSearchParams(params as ReadonlyURLSearchParams);
   return (
     <main className="flex flex-col gap-10 items-center">
-      <span>haha novinky</span>
+      <ArticleGrid searchParams={searchParams} />
+      <ArticlePages />
     </main>
   );
 }

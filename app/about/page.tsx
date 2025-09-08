@@ -1,3 +1,4 @@
+import { SupportSection } from "@/client-components/support-section/support-section";
 import { ContentDescriptionShadowed } from "@/elements/content-description-shadowed/content-description-shadowed";
 import { CompanyEmployees } from "@/server-components/company-employees/company-employees";
 
@@ -43,6 +44,8 @@ export default function AboutPage() {
         <h2 className="text-3xl font-semibold">Lidé v azylu</h2>
         <CompanyEmployees />
       </section>
+
+      <SupportSection />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { ContentDescriptionShadowed } from "@/elements/content-description-shadowed/content-description-shadowed";
 import { IAnimalDTO } from "@/interfaces/animal/IAnimalDTO";
 import { IAnimal } from "@/models/animal/animal";
-import { CalcAnimalAge } from "@/server-components/Animal-card/animal-card";
+import { CalcSinceDate } from "@/server-components/Animal-card/animal-card";
 import { GetAnimalDTO } from "@/services/animal-service/animalDTO.service";
 import { GetAnimalById } from "@/services/animal-service/animals.service";
 import Image from "next/image";
@@ -32,7 +32,7 @@ export default async function AnimalById({ params }: PageProps) {
           "
         >
           <span>Jméno: {animalDTO.name}</span>
-          <span>Věk: {CalcAnimalAge(animalDTO.birthDay)}</span>
+          <span>Věk: {CalcSinceDate(animalDTO.birthDay)}</span>
           <span>Typ zvířete: {animalDTO.animalType}</span>
           <span>Stav: {animalDTO.state}</span>
         </div>

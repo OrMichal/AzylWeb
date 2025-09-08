@@ -24,8 +24,10 @@ export function ArticleCard({ article }: IArticleCardProps) {
             className="rounded-xl"
           />
         </div>
-        <section className="flex flex-col items-start gap-2">
-          <h2 className="text-xl font-light">{articleDto.heading}</h2>
+        <section className="flex flex-col items-start gap-2 w-full">
+          <h2 className="text-xl font-light border-b-1 border-amber-300 w-full">
+            {articleDto.heading}
+          </h2>
           <span>před {CalcSinceDate(articleDto.createdAt)}</span>
           <span className="text-sm pt-5">{articleDto.description}</span>
         </section>

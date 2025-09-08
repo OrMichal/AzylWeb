@@ -1,3 +1,5 @@
+import { ReadonlyURLSearchParams } from "next/navigation";
+
 export async function GetGeneratorArray<T>(
   generator: AsyncGenerator<T>,
 ): Promise<Array<T>> {
@@ -21,10 +23,40 @@ export function GetQueryFromObject(record: Record<string, any>): string {
 export function GetObjectFromQuery(query: string): Record<string, any> {
   const res: Record<string, any> = {};
 
-  query.split("&").forEach((p) => {
-    const splitted = p.split("=");
-    res[splitted[0]] = splitted[1];
-  });
+  query
+    .replace(/^\?/, "")
+    .split("&")
+    .forEach((p) => {
+      if (!p) return;
+      const splitted = p.split("=");
+      res[splitted[0]] = splitted[1];
+    });
 
+  return res;
+}
+
+export function Range(start: number, end: number): number[] {
+  return [...Array(end)].map((_, i) => i + 1).filter((x) => x >= start);
+}
+
+export function GetObjectFromSearchParams(
+  params: ReadonlyURLSearchParams,
+): Record<string, any> {
+  let res: Record<string, any> = {};
+  params.forEach((value, key) => (res[key] = value));
+  return res;
+}
+
+export function GetStringFromSearchParams(
+  params: ReadonlyURLSearchParams,
+): String {
+  if (params.size == 0) {
+    return "";
+  }
+
+  let res: String = "";
+
+  params.forEach((value, key) => (res = res?.concat(`&${key}=${value}`)));
+  res = res?.replace(/^&/, "?");
   return res;
 }

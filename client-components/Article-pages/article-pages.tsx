@@ -1,35 +1,29 @@
 "use client";
+import { AppButton } from "@/elements/app-button/app-button";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-import { GetQueryFromObject } from "@/services/core-service/core.service";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/router";
-import { useState } from "react";
+export function ArticlePages() {
+  const params = useSearchParams();
+  const pathname = usePathname();
+  const router = useRouter();
 
-interface IArticlePagesProps {
-  filter: Record<string, any>;
-}
+  const page = Number.parseInt(params.get("page") || "1");
+  const morePages: boolean = page > 1;
 
-export function ArticlePages({ filter }: IArticlePagesProps) {
-  const { push, query } = useRouter();
-  const { data, error, isLoading } = useQuery<{ count: number }>({
-    queryKey: ["articleCountKey"],
-    queryFn: () =>
-      fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/articles/count${GetQueryFromObject(filter)}`,
-      ).then((resp) => resp.json()),
-  });
+  const switchPage = (state: number) => {
+    const pars = new URLSearchParams(params.toString());
+    pars.set("page", (page + state).toString());
 
-  if (error) {
-    return <div>oopsie daisie... {error.message}</div>;
-  }
-
-  if (isLoading) {
-    return <div>načítání...</div>;
-  }
+    router.push(pathname + "?" + pars.toString());
+  };
 
   return (
-    <section>
-      {for let i }
+    <section className="flex justify-between w-full">
+      <div className={`${!morePages ? "invisible" : ""}`}>
+        <AppButton label="předchozí stránka" onClick={() => switchPage(-1)} />
+      </div>
+      <AppButton label="další stránka" onClick={() => switchPage(1)} />
     </section>
   );
 }

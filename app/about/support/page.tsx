@@ -1,4 +1,5 @@
 import { ContentDescription } from "@/client-components/content-description/content-description";
+import { ContentDescriptionShadowed } from "@/elements/content-description-shadowed/content-description-shadowed";
 import { PageContent } from "@/elements/page-content/page-content";
 import { PageContentLink } from "@/elements/page-content/page-content-link";
 
@@ -30,8 +31,8 @@ export default function SupportPage() {
       </PageContent>
 
       <section id="intro" className="w-full">
-        <ContentDescription heading="Úvod">
-          <div className="flex flex-col gap-2">
+        <ContentDescriptionShadowed heading="Úvod">
+          <div className="flex flex-col gap-2 font-extralight">
             <span>
               Naše práce by nebyla možná bez pomoci našich podporovatelů. Díky
               vám můžeme poskytovat péči zvířatům, která potřebují nový domov a
@@ -42,23 +43,23 @@ export default function SupportPage() {
               pomáhá měnit životy k lepšímu.
             </span>
           </div>
-        </ContentDescription>
+        </ContentDescriptionShadowed>
       </section>
 
       <section id="howtosupport" className="w-full">
-        <ContentDescription heading="Jak nás můžete podpořit?">
-          <div className="flex flex-col gap-2">
+        <ContentDescriptionShadowed heading="Jak nás můžete podpořit?">
+          <div className="flex flex-col gap-2 font-extralight">
             <span>
               Podpořit nás můžete mnoha způsoby. Níže najdete přehled možností,
               jak se zapojit a pomoci našim svěřencům.
             </span>
           </div>
-        </ContentDescription>
+        </ContentDescriptionShadowed>
       </section>
 
       <section id="financial" className="w-full">
-        <ContentDescription heading="Finanční podpora">
-          <div className="flex flex-col gap-2">
+        <ContentDescriptionShadowed heading="Finanční podpora">
+          <div className="flex flex-col gap-2 font-extralight">
             <span>
               Finanční příspěvky nám umožňují zajistit veterinární péči, krmivo
               a potřebné vybavení.
@@ -70,12 +71,12 @@ export default function SupportPage() {
             <span className="font-semibold">Číslo účtu: 123456789/0100</span>
             <span className="italic">QR kód pro platbu naleznete zde.</span>
           </div>
-        </ContentDescription>
+        </ContentDescriptionShadowed>
       </section>
 
       <section id="material" className="w-full">
-        <ContentDescription heading="Materiální pomoc">
-          <div className="flex flex-col gap-2">
+        <ContentDescriptionShadowed heading="Materiální pomoc">
+          <div className="flex flex-col gap-2 font-extralight">
             <span>
               Uvítáme také dary ve formě krmiva, dek, hraček nebo čisticích
               prostředků.
@@ -85,12 +86,12 @@ export default function SupportPage() {
               deky, stelivo a hygienické prostředky.
             </span>
           </div>
-        </ContentDescription>
+        </ContentDescriptionShadowed>
       </section>
 
       <section id="adoption" className="w-full">
-        <ContentDescription heading="Adopce na dálku">
-          <div className="flex flex-col gap-2">
+        <ContentDescriptionShadowed heading="Adopce na dálku">
+          <div className="flex flex-col gap-2 font-extralight">
             <span>
               Pokud nemůžete zvíře adoptovat domů, můžete se zapojit formou
               adopce na dálku.
@@ -100,12 +101,12 @@ export default function SupportPage() {
               stavu vás budeme pravidelně informovat.
             </span>
           </div>
-        </ContentDescription>
+        </ContentDescriptionShadowed>
       </section>
 
       <section id="volunteering" className="w-full">
-        <ContentDescription heading="Dobrovolnictví">
-          <div className="flex flex-col gap-2">
+        <ContentDescriptionShadowed heading="Dobrovolnictví">
+          <div className="flex flex-col gap-2 font-extralight">
             <span>
               Přijímáme pomoc dobrovolníků, kteří chtějí věnovat svůj čas přímo
               u nás v azylu.
@@ -115,12 +116,12 @@ export default function SupportPage() {
               organizací akcí.
             </span>
           </div>
-        </ContentDescription>
+        </ContentDescriptionShadowed>
       </section>
 
       <section id="partners" className="w-full">
-        <ContentDescription heading="Firemní spolupráce">
-          <div className="flex flex-col gap-2">
+        <ContentDescriptionShadowed heading="Firemní spolupráce">
+          <div className="flex flex-col gap-2 font-extralight">
             <span>
               Nabízíme možnost spolupráce s firmami, které chtějí podpořit naši
               činnost.
@@ -139,7 +140,7 @@ export default function SupportPage() {
               </a>
             </span>
           </div>
-        </ContentDescription>
+        </ContentDescriptionShadowed>
       </section>
     </main>
   );

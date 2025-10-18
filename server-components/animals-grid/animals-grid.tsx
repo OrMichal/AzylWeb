@@ -1,10 +1,23 @@
 import { IAnimal } from "@/models/animal/animal";
-import { GetAllAnimals } from "@/services/animal-service/animals.service";
+import {
+  GetAllAnimals,
+  GetFilteredAnimals,
+} from "@/services/animal-service/animals.service";
 import { AnimalCard } from "../Animal-card/animal-card";
 import Link from "next/link";
+import { IPageProps, queryParams } from "@/services/core-service/core.service";
 
-export async function AnimalsGrid() {
-  const animals: IAnimal[] = await GetAllAnimals();
+interface IAnimalsGridProps {
+  querry: queryParams;
+}
+
+export async function AnimalsGrid({ querry }: IAnimalsGridProps) {
+  const params = await querry;
+  const animals: IAnimal[] = await GetFilteredAnimals(params);
+
+  if (animals.length == 0) {
+    return <div className="w-full">haha</div>;
+  }
 
   return (
     <div className="grid grid-cols-3 gap-3 w-full">

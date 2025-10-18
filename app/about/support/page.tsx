@@ -1,4 +1,6 @@
 import { ContentDescription } from "@/client-components/content-description/content-description";
+import { AppRollDownMenu } from "@/elements/app-rolldown-menu/app-rolldown-menu";
+import { AppSummary } from "@/elements/app-summary/app-summary";
 import { ContentDescriptionShadowed } from "@/elements/content-description-shadowed/content-description-shadowed";
 import { PageContent } from "@/elements/page-content/page-content";
 import { PageContentLink } from "@/elements/page-content/page-content-link";
@@ -6,7 +8,7 @@ import { PageContentLink } from "@/elements/page-content/page-content-link";
 export default function SupportPage() {
   return (
     <main className="flex flex-col gap-10 items-center">
-      <PageContent>
+      <AppSummary title="Obsah stránky">
         <>
           <PageContentLink href={"/about/support#intro"}>Úvod</PageContentLink>
           <PageContentLink href={"/about/support#howtosupport"}>
@@ -28,7 +30,7 @@ export default function SupportPage() {
             Firemní spolupráce
           </PageContentLink>
         </>
-      </PageContent>
+      </AppSummary>
 
       <section id="intro" className="w-full">
         <ContentDescriptionShadowed heading="Úvod">

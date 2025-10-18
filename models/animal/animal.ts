@@ -8,6 +8,7 @@ export interface IAnimal extends Document {
   imageGuid: string;
   description: string;
   history: string;
+  gender: number;
 }
 
 const AnimalSchema = new Schema<IAnimal>({
@@ -22,6 +23,7 @@ const AnimalSchema = new Schema<IAnimal>({
   imageGuid: { type: String, required: true },
   description: { type: String, required: true },
   history: { type: String, required: true },
+  gender: { type: Number, required: true },
 });
 
 export const Animal =

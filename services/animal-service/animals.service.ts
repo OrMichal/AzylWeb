@@ -1,6 +1,7 @@
 import { MongoConnect } from "@/lib/mongoose/mongoose";
 import { Animal, IAnimal } from "@/models/animal/animal";
 import { AnimalTypeModel, IAnimalType } from "@/models/animalType/animalType";
+import { queryParams } from "../core-service/core.service";
 
 export async function GetAllAnimals(): Promise<IAnimal[]> {
   await MongoConnect();
@@ -27,6 +28,36 @@ export async function GetAnimalsByType(typeName: string): Promise<IAnimal[]> {
     throw new Error("Animals could not be found");
   }
 
+  return animals;
+}
+
+export async function GetFilteredAnimals(
+  query?: queryParams,
+): Promise<IAnimal[]> {
+  await MongoConnect();
+  const filter: Record<string, any> = {};
+
+  let animalState = query?.animalState;
+  let animalGender = query?.animalGender;
+
+  if (animalState) {
+    filter.state =
+      animalState == "lookingForHome"
+        ? "hledá domov"
+        : animalState == "foundHome"
+          ? "našel domov"
+          : animalState == "quarantine"
+            ? "karanténa"
+            : "leftUs";
+  }
+
+  if (animalGender) {
+    filter.gender = animalGender == "male" ? 1 : 0;
+  }
+
+  console.log(`animalState: ${animalState}, animalGender: ${animalGender}`);
+
+  const animals: IAnimal[] = await Animal.find<IAnimal>({ ...filter });
   return animals;
 }
 

@@ -43,11 +43,9 @@ export const CalcSinceDate = (birthdateStr: string): string => {
 
 export async function AnimalCard({ animal }: IAnimalCardProps) {
   const animalDTO: IAnimalDTO = await GetAnimalDTO(animal);
-
-  console.log(animalDTO.birthDay);
   return (
-    <div className="flex flex-col items-center gap-3 rounded-2xl shadow-lg hover:shadow-2xl hover:translate-y-[-8px] transition-transform">
-      <div className="p-4 relative">
+    <div className="flex items-center gap-3 rounded-2xl shadow-lg hover:shadow-2xl hover:translate-y-[-8px] transition-transform">
+      <div className="m-2 relative flex w-full gap-3">
         <div className="relative h-50 w-50">
           <Image
             alt={`daisy azyl ${animalDTO.name}`}
@@ -56,7 +54,10 @@ export async function AnimalCard({ animal }: IAnimalCardProps) {
             className="rounded-2xl"
           />
         </div>
-        <div className="flex flex-col gap-1 w-full flex-wrap mt-2">
+        <div
+          className="flex flex-col gap-1 flex-wrap mt-2 
+           p-2 backdrop-blur-xs"
+        >
           <span>Jméno: {animalDTO.name}</span>
           <span>Věk: {CalcSinceDate(animalDTO.birthDay)} </span>
           <span>{animalDTO.state}</span>

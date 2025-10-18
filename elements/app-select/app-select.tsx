@@ -7,7 +7,7 @@ interface IAppSelectProps
 
 export function AppSelect({ children, className }: IAppSelectProps) {
   return (
-    <select className={`${className} bg-white p-2 rounded-xl`}>
+    <select className={`${className} bg-white p-2 rounded-lg shadow`}>
       {children}
     </select>
   );

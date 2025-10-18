@@ -23,6 +23,7 @@ export async function GetAnimalDTO(animal: IAnimal): Promise<IAnimalDTO> {
     description: animal.description,
     history: animal.history,
     birthDay: plain.birthDay,
+    gender: animal.gender == 1 ? "sameček" : "samička",
   };
 
   return res;

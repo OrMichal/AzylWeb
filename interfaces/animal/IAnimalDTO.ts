@@ -6,4 +6,5 @@ export interface IAnimalDTO {
   imageGuid: string;
   description: string;
   history: string;
+  gender: string;
 }

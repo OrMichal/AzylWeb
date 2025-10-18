@@ -1,5 +1,11 @@
 import { ReadonlyURLSearchParams } from "next/navigation";
 
+export type queryParams = { [key: string]: string | string[] | undefined };
+
+export interface IPageProps {
+  searchParams?: queryParams;
+}
+
 export async function GetGeneratorArray<T>(
   generator: AsyncGenerator<T>,
 ): Promise<Array<T>> {

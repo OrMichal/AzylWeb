@@ -1,9 +1,9 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGO_URI!;
 
 if (!MONGODB_URI) {
-  throw new Error("Database url was not found");
+  throw new Error("could not connect to database");
 }
 
 let cached: any = (global as any).mongoose;

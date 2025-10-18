@@ -11,11 +11,13 @@ interface IArticleCardProps {
 
 export function ArticleCard({ article }: IArticleCardProps) {
   const articleDto: IArticleDTO = GetArticleDTO(article);
-  console.log(articleDto);
 
   return (
-    <Link className="relative" href={`/articles/${articleDto.index}`}>
-      <article className="flex gap-10 shadow p-5 rounded-3xl w-full relative">
+    <Link className="relative " href={`/articles/${articleDto.index}`}>
+      <article
+        className="flex gap-10 shadow p-5 rounded-3xl w-full relative
+        hover:shadow-lg"
+      >
         <div className="relative w-40 h-40">
           <Image
             src={`${process.env.NEXT_PUBLIC_API_URL}/api/articles/image/${articleDto.imageGuid}`}

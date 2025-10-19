@@ -1,0 +1,3 @@
+.responsive-body {
+  width: clamp(200px, auto, 800px);
+}

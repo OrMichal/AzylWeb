@@ -3,6 +3,8 @@ import { Animal, IAnimal } from "@/models/animal/animal";
 import { AnimalTypeModel, IAnimalType } from "@/models/animalType/animalType";
 import { queryParams } from "../core-service/core.service";
 
+const ANIMALS_PER_PAGE = 12;
+
 export async function GetAllAnimals(): Promise<IAnimal[]> {
   await MongoConnect();
   const animals: IAnimal[] = await Animal.find();
@@ -32,6 +34,7 @@ export async function GetAnimalsByType(typeName: string): Promise<IAnimal[]> {
 }
 
 export async function GetFilteredAnimals(
+  page: number,
   query?: queryParams,
 ): Promise<IAnimal[]> {
   await MongoConnect();
@@ -55,9 +58,9 @@ export async function GetFilteredAnimals(
     filter.gender = animalGender == "male" ? 1 : 0;
   }
 
-  console.log(`animalState: ${animalState}, animalGender: ${animalGender}`);
-
-  const animals: IAnimal[] = await Animal.find<IAnimal>({ ...filter });
+  const animals: IAnimal[] = await Animal.find({ ...filter })
+    .skip((page - 1) * ANIMALS_PER_PAGE)
+    .limit(ANIMALS_PER_PAGE);
   return animals;
 }
 

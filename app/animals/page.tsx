@@ -23,7 +23,7 @@ export default async function Animals({
 
   return (
     <div className="pt-5 flex flex-col gap-3 w-full items-center">
-      <div className="flex gap-3 w-full">
+      <div className="flex gap-3 w-full lg:flex-row sm:flex-col flex-col">
         <Link href={"/animals/quarantine"} className="w-full">
           <AnimalsInQuarantine />
         </Link>
@@ -43,10 +43,10 @@ export default async function Animals({
           <AnimalsLeftUs />
         </Link>
       </div>
-      <h2 className="text-2xl font-medium">
-        Zvířátka, která si prošla naším azylem
+      <h2 className="mt-10 text-2xl font-medium">
+        Prohlídněte si zvířátka, která si prošla naším azylem
       </h2>
-      <AnimalsGrid querry={searchParams} />
+      <AnimalsGrid querry={searchParams} page={1} />
     </div>
   );
 }

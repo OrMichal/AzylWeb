@@ -18,7 +18,7 @@ export function NavBarItem({ href, title, icon }: NavBarItemProps) {
           className={`
             ${pathname == href ? "text-amber-300" : "bg-white group-hover:text-gray-300"}
             relative
-            font-medium text-lg p-1 pr-4 pl-4
+            font-medium text-sm p-1 pr-4 pl-4
             
             flex gap-1 items-center
           `}

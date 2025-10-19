@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="w-full flex flex-col items-center gap-20">
       <HeroSection />
-      <div className="relative flex gap-3 w-full">
+      <div className="relative flex flex-col lg:flex-row md:flex-col sm:flex-col gap-3 w-full">
         <BasicInfoCard icon={faHeart}>
           <span className="text-wrap">
             O zvířátka se staráme s láskou, jakou si zaslouží.

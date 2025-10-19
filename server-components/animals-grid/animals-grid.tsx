@@ -1,3 +1,4 @@
+import "./animals-grid.css";
 import { IAnimal } from "@/models/animal/animal";
 import {
   GetAllAnimals,
@@ -9,18 +10,21 @@ import { IPageProps, queryParams } from "@/services/core-service/core.service";
 
 interface IAnimalsGridProps {
   querry: queryParams;
+  page: number;
 }
 
-export async function AnimalsGrid({ querry }: IAnimalsGridProps) {
+export async function AnimalsGrid({ querry, page }: IAnimalsGridProps) {
   const params = await querry;
-  const animals: IAnimal[] = await GetFilteredAnimals(params);
+  const animals: IAnimal[] = await GetFilteredAnimals(page, params);
 
   if (animals.length == 0) {
-    return <div className="w-full">haha</div>;
+    return (
+      <div className="w-full">Nepodařilo se najíž žádná taková zvířátka.</div>
+    );
   }
 
   return (
-    <div className="grid grid-cols-3 gap-3 w-full">
+    <div className="responsive-grid w-full">
       {animals.map((a: IAnimal) => (
         <Link key={a._id as string} href={`/animals/${a._id}`}>
           <AnimalCard animal={a} />

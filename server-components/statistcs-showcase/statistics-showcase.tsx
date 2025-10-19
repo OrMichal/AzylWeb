@@ -74,7 +74,7 @@ export async function StatisticsShowcase() {
             přístřeší – můžeme jim vrátit důvěru, klid a lásku.
           </p>
         </div>
-        <div className="relative w-full md:w-[420px] h-[300px] md:h-[420px]">
+        <div className="relative w-full md:w-[420px] h-[300px] md:h-[420px] sm:hidden">
           <Image
             src="/images/statistics.jpg"
             alt="Statistika týraných zvířat"

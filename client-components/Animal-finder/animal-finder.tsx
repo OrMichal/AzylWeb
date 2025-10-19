@@ -9,7 +9,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 export function AnimalFinder({ children }: { children: React.ReactNode }) {
   const [gridActive, setGridActive] = useState(true);
@@ -44,7 +44,7 @@ export function AnimalFinder({ children }: { children: React.ReactNode }) {
     return params.get(param);
   };
 
-  const handleAnimalState = (e: MouseEvent, param: string, value: string) => {
+  const handleAnimalState = (e: any, param: string, value: string) => {
     if ((e.target as HTMLInputElement).checked) {
       updateParam("animalState", value);
     } else {
@@ -52,13 +52,15 @@ export function AnimalFinder({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const handleAnimalGender = (e: MouseEvent, value: string) => {
+  const handleAnimalGender = (e: any, value: string) => {
     if ((e.target as HTMLInputElement).checked) {
       updateParam("animalGender", value);
     } else {
       removeParam("animalGender");
     }
   };
+
+  const page = getParamValue("page") || 1;
 
   return (
     <div className="flex flex-col gap-5 items-center w-full">
@@ -87,30 +89,17 @@ export function AnimalFinder({ children }: { children: React.ReactNode }) {
             Filtrování
           </span>
         </section>
-        <section className="flex gap-10 flex-4 items-center">
-          <div className="flex gap-2 items-center">
-            <span>Třídit:</span>
-            <AppSelect>
-              <AppOption>datum nálezu: nejnovější</AppOption>
-              <AppOption>datum nálezu: nejstarší</AppOption>
-              <AppOption>jméno: od A do Z</AppOption>
-              <AppOption>jméno: od Z do A</AppOption>
-              <AppOption>věk: nejmladší</AppOption>
-              <AppOption>věk: nejstarší</AppOption>
-            </AppSelect>
-          </div>
-        </section>
       </section>
       <section className="flex gap-10 items-start w-full">
         {filterShown && (
-          <aside className="flex flex-col items-center flex-1">
+          <aside className="flex flex-col items-center w-100">
             <AppSummary title="kategorie">
               <section className="flex flex-col items-start">
                 <div className="flex gap-2">
                   <input
                     type="checkbox"
                     checked={getParamValue("animalState") == "quarantine"}
-                    onClick={(e) =>
+                    onChange={(e) =>
                       handleAnimalState(e, "animalState", "quarantine")
                     }
                   />
@@ -120,7 +109,7 @@ export function AnimalFinder({ children }: { children: React.ReactNode }) {
                   <input
                     type="checkbox"
                     checked={getParamValue("animalState") == "lookingForHome"}
-                    onClick={(e) =>
+                    onChange={(e) =>
                       handleAnimalState(e, "animalState", "lookingForHome")
                     }
                   />
@@ -130,7 +119,7 @@ export function AnimalFinder({ children }: { children: React.ReactNode }) {
                   <input
                     type="checkbox"
                     checked={getParamValue("animalState") == "foundHome"}
-                    onClick={(e) =>
+                    onChange={(e) =>
                       handleAnimalState(e, "animalState", "foundHome")
                     }
                   />
@@ -140,7 +129,7 @@ export function AnimalFinder({ children }: { children: React.ReactNode }) {
                   <input
                     type="checkbox"
                     checked={getParamValue("animalState") == "leftUs"}
-                    onClick={(e) =>
+                    onChange={(e) =>
                       handleAnimalState(e, "animalState", "leftUs")
                     }
                   />
@@ -154,7 +143,7 @@ export function AnimalFinder({ children }: { children: React.ReactNode }) {
                   <input
                     type="checkbox"
                     checked={getParamValue("animalGender") == "male"}
-                    onClick={(e) => handleAnimalGender(e, "male")}
+                    onChange={(e) => handleAnimalGender(e, "male")}
                   />
                   <span>sameček</span>
                 </div>
@@ -162,7 +151,7 @@ export function AnimalFinder({ children }: { children: React.ReactNode }) {
                   <input
                     type="checkbox"
                     checked={getParamValue("animalGender") == "female"}
-                    onClick={(e) => handleAnimalGender(e, "female")}
+                    onChange={(e) => handleAnimalGender(e, "female")}
                   />
                   <span>samička</span>
                 </div>
@@ -170,7 +159,36 @@ export function AnimalFinder({ children }: { children: React.ReactNode }) {
             </AppSummary>
           </aside>
         )}
-        <div>{children}</div>
+        <div className="flex flex-col w-full gap-5">
+          {children}
+          <div className="flex justify-between">
+            <button
+              onClick={() => {
+                updateParam(
+                  "page",
+                  parseInt(page.toString()) - 1 > 0
+                    ? (parseInt(page.toString()) - 1).toString()
+                    : (1).toString(),
+                );
+              }}
+            >
+              <div
+                className={`p-2 bg-amber-300 rounded-sm hover:cursor-pointer hover:shadow-lg ${page == "1" ? "hidden" : ""}`}
+              >
+                předchozí
+              </div>
+            </button>
+            <button
+              onClick={() => {
+                updateParam("page", (parseInt(page.toString()) + 1).toString());
+              }}
+            >
+              <div className="p-2 bg-amber-300 rounded-sm hover:cursor-pointer hover:shadow-lg">
+                další
+              </div>
+            </button>
+          </div>
+        </div>
       </section>
     </div>
   );

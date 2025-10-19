@@ -28,6 +28,7 @@ function SendEmail(to: string, subject: string, html: string): void {
 }
 
 export function SendContactEmail(contactData: IContactFormData) {
+  console.log(contactData);
   SendEmail(
     contactData.email,
     "Záznam o kontaktování Daisy a. s.",

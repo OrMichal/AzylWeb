@@ -18,7 +18,6 @@ export function ContactForm() {
   const SendMessage = (e: FormEvent) => {
     e.preventDefault();
     MailMutation.mutate();
-    setFormData({ name: "", email: "", telephone: "", message: "" });
   };
 
   const MailMutation = useMutation({
@@ -27,7 +26,7 @@ export function ContactForm() {
       fetch(`http://localhost:3000/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData }),
       }),
     onError: () => toast.error("Nepodařilo se poslat e-mail"),
     onSuccess: () => toast.success("E-mail byl úspěšně odeslán"),
@@ -35,7 +34,7 @@ export function ContactForm() {
 
   return (
     <form
-      className="p-5 shadow flex flex-col gap-2 w-250 rounded-3xl"
+      className="p-5 shadow flex flex-col gap-2 w-full rounded-3xl"
       onSubmit={(e) => SendMessage(e)}
     >
       <h3 className="font-medium text-2xl text-left">Kontaktní formulář</h3>

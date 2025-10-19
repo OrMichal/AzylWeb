@@ -10,6 +10,11 @@ export async function* GetAllArticles(): AsyncGenerator<IArticle> {
   }
 }
 
+export async function GetArticleById(id: string): IArticle {
+  const article: IArticle = await ArticleModel.findOne({ _id: id });
+  return article;
+}
+
 export function GetArticlePagesCount(articles: IArticle[]): number {
   return Math.ceil(articles.length / ARTICLES_PER_PAGE);
 }

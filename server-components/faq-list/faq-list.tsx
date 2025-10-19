@@ -11,7 +11,7 @@ export async function FAQList() {
   const faqDTOList: IFAQDTO[] = faqList.map((x) => GetFAQDTO(x));
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-row flex-wrap gap-10">
       {faqDTOList.map((f) => (
         <AppSummary key={crypto.randomUUID()} title={f.question}>
           <span>{f.answer}</span>

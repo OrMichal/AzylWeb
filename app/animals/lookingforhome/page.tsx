@@ -14,7 +14,10 @@ export default async function AnimalsLookingForHome({
         <AnimalsLookingForHomeDescription />
       </section>
       <AnimalFinder>
-        <AnimalsGrid querry={searchParams} />
+        <AnimalsGrid
+          querry={searchParams}
+          page={parseInt(searchParams?.page?.toString())}
+        />
       </AnimalFinder>
     </div>
   );

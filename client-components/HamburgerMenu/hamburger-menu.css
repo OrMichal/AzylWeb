@@ -1,0 +1,42 @@
+.hamburger {
+  transition: 200ms;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.hamburger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 40dvw;
+  z-index: 999;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  animation: linear slide-in 0.4s forwards;
+}
+
+.hamburger-menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  backdrop-filter: blur(2px);
+  z-index: 998;
+}
+
+@keyframes slide-in {
+  from {
+    width: 0;
+  }
+  to {
+    width: 40dvw;
+  }
+}

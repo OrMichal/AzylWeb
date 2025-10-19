@@ -1,6 +1,13 @@
 import { IAnimalDTO } from "@/interfaces/animal/IAnimalDTO";
 import { IAnimal } from "@/models/animal/animal";
 import { GetAnimalDTO } from "@/services/animal-service/animalDTO.service";
+import {
+  faFemale,
+  faMale,
+  faMars,
+  faVenus,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 
 interface IAnimalCardProps {
@@ -45,22 +52,26 @@ export async function AnimalCard({ animal }: IAnimalCardProps) {
   const animalDTO: IAnimalDTO = await GetAnimalDTO(animal);
   return (
     <div className="flex items-center gap-3 rounded-2xl shadow-lg hover:shadow-2xl hover:translate-y-[-8px] transition-transform">
-      <div className="m-2 relative flex w-full gap-3">
-        <div className="relative h-50 w-50">
+      <div className="m-2 relative flex flex-col items-center w-full gap-3">
+        <div className="relative w-full h-64">
           <Image
             alt={`daisy azyl ${animalDTO.name}`}
             src={`${process.env.NEXT_PUBLIC_API_URL}/api/animals/images/${animalDTO.imageGuid}`}
             fill
-            className="rounded-2xl"
+            className="rounded-2xl object-cover"
+            sizes="(max-width: 768px) 100vw, 400px"
           />
         </div>
-        <div
-          className="flex flex-col gap-1 flex-wrap mt-2 
-           p-2 backdrop-blur-xs"
-        >
-          <span>Jméno: {animalDTO.name}</span>
-          <span>Věk: {CalcSinceDate(animalDTO.birthDay)} </span>
-          <span>{animalDTO.state}</span>
+
+        <div className="flex flex-col gap-1 flex-wrap mt-2 p-2 backdrop-blur-xs">
+          <span>
+            {animalDTO.name}{" "}
+            {animalDTO.gender == "sameček" ? (
+              <FontAwesomeIcon icon={faMars} />
+            ) : (
+              <FontAwesomeIcon icon={faVenus} />
+            )}
+          </span>
         </div>
       </div>
     </div>

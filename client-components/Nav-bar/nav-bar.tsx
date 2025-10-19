@@ -6,23 +6,34 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons/faHouse";
 import {
   faDog,
   faNewspaper,
+  faOtter,
   faPeopleGroup,
   faQuestionCircle,
   faShop,
 } from "@fortawesome/free-solid-svg-icons";
+import { HamburgerMenu } from "../HamburgerMenu/hamburger-menu";
 
 export default function NavBar() {
   return (
     <nav className="flex flex-col items-center p-2 shadow">
-      <div className="flex flex-row justify-between w-350 items-center">
-        <Link href={"/"}>
-          <span className="text-4xl font-light">Daisy z. s.</span>
-        </Link>
-        <div className="flex flex-row gap-10">
+      <div
+        className="flex flex-row justify-between items-center
+        sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1200px] w-full
+        "
+      >
+        <div className="flex gap-5">
+          <HamburgerMenu />
+          <Link href={"/"}>
+            <span className="text-4xl font-light">Daisy z. s.</span>
+          </Link>
+        </div>
+        <div
+          className={`flex hidden  justify-evenly lg:flex md:hidden sm:hidden`}
+        >
           <NavBarItem title="Domů" icon={faHouse} href="/" />
           <NavBarItem title="O nás" icon={faPeopleGroup} href="/about" />
           <NavBarItem title="Novinky" icon={faNewspaper} href="/articles" />
-          <NavBarItem title="Zvířátka" icon={faDog} href="/animals" />
+          <NavBarItem title="Zvířátka" icon={faOtter} href="/animals" />
           <NavBarItem
             title="Časté dotazy"
             icon={faQuestionCircle}

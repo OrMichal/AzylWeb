@@ -13,7 +13,10 @@ export default async function AnimalsInQuarantine({
         <AnimalsInQuarantineDescription />
       </section>
       <AnimalFinder>
-        <AnimalsGrid querry={searchParams} />
+        <AnimalsGrid
+          querry={searchParams}
+          page={parseInt(searchParams?.page?.toString())}
+        />
       </AnimalFinder>
     </div>
   );

@@ -30,7 +30,7 @@ export async function ArticleGrid({
   }
 
   return (
-    <div className="grid grid-cols-2 gap-4 w-full">
+    <div className="grid md:grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4 w-full">
       {articles.map((a) => (
         <ArticleCard key={crypto.randomUUID()} article={a} />
       ))}

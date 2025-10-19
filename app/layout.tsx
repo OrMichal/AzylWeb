@@ -1,3 +1,4 @@
+import "./layout.css";
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import "./globals.css";
@@ -37,7 +38,7 @@ export default async function RootLayout({ children }: IRootLayoutProps) {
           <NavBar />
 
           <div className="flex flex-col items-center w-full min-h-dvh">
-            <div className="w-350 pb-10 pt-10">
+            <div className="w-full sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1200px] p-10">
               <Breadcrumbs className="mr-auto mb-4" />
               <QueryWrapper>{children}</QueryWrapper>
             </div>

@@ -28,13 +28,11 @@ interface IRootLayoutProps {
 }
 
 export default async function RootLayout({ children }: IRootLayoutProps) {
-  const session = await getServerSession();
-
   return (
     <html lang="en" className={`${quicksand.variable} antialiased`}>
       <body>
         <Toaster position="top-center" reverseOrder={false} />
-        <SessionWrapper session={session}>
+        <SessionWrapper>
           <NavBar />
 
           <div className="flex flex-col items-center w-full min-h-dvh">

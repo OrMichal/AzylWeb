@@ -6,7 +6,10 @@ export default function RegisterPage() {
       <div className="w-full flex lg:flex-row sm:flex-col gap-3 shadow rounded-3xl p-3">
         <RegistrationForm />
         <section className="flex flex-col gap-5 p-7 w-full">
-          <span>haha</span>
+          <span>
+            Založte si účet a staňte se součástí našeho klientského portálu.
+            Po registraci můžete sledovat své žádosti, upravovat informace a využívat naše služby naplno.
+          </span>
         </section>
       </div>
     </div>

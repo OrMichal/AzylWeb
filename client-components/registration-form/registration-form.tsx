@@ -33,7 +33,7 @@ export function RegistrationForm() {
   const registerMutation = useMutation({
     mutationKey: ["registerMut"],
     mutationFn: () =>
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/authentication/register`, {
+      fetch(`/api/authentication/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(regData),
@@ -61,7 +61,7 @@ export function RegistrationForm() {
     >
       <h2 className="self-center text-3xl font-medium">Registrace</h2>
       <div className="flex flex-col gap-9">
-        <div className="flex lg:gap-10 lg:flex-row sm:flex-col items-center justify-between w-full">
+        <div className="flex flex-col lg:gap-10 lg:flex-row sm:flex-col items-center justify-between w-full">
           <AppFormCredential
             name="firstname"
             label=""

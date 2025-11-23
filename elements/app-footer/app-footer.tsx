@@ -32,14 +32,14 @@ export function AppFooter() {
               <FontAwesomeIcon icon={faFacebook} />
               <span>Facebook: Daisy azyl z. s.</span>
             </Link>
-            <span className="flex items-center gap-2 text-white">
+            <Link target="_blank" href={"mailto:daisyazyl@gmail.com"} className="flex items-center gap-2 text-white">
               <FontAwesomeIcon icon={faEnvelope} />
               <span>Email: daisyazyl@gmail.com</span>
-            </span>
-            <span className="flex items-center gap-2 text-white">
+            </Link>
+            <Link target="_blank" href={"tel:605793896"} className="flex items-center gap-2 text-white">
               <FontAwesomeIcon icon={faPhone} />
               <span>Telefonní číslo: 605 793 896</span>
-            </span>
+            </Link>
             <Link
               href={"/about/contact"}
               className="flex items-center gap-2 text-white"

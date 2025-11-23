@@ -5,6 +5,7 @@ import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -19,6 +20,8 @@ export function LoginForm() {
     password: "",
   });
 
+  const router = useRouter();
+
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
     const res = await signIn("credentials", {
@@ -29,6 +32,7 @@ export function LoginForm() {
 
     if (res?.ok) {
       toast.success("Přihlášení proběhlo úspěšně");
+      router.push("/");
     } else if (res?.status === 401) {
       toast.error("Nesprávné jméno nebo heslo");
     }

@@ -24,7 +24,7 @@ export default async function AnimalById({ params }: PageProps) {
         <section className="flex items-start gap-15 w-full">
           <div className="w-120 h-120 relative">
             <Image
-              src={`${process.env.NEXT_PUBLIC_API_URL}/api/animals/images/${animalDTO.imageGuid}`}
+              src={`/api/animals/images/${animalDTO.imageGuid}`}
               alt={`daisy azyl ${animalDTO.name} description`}
               fill
               className="rounded-4xl"

@@ -42,7 +42,7 @@ const authOptions: AuthOptions = {
           id: (user._id as ObjectId).toString(),
           name: user.username,
           email: user.email,
-          image: `${process.env.NEXT_PUBLIC_API_URL}/api/users/image/${user.imageGuid}`,
+          image: `/api/users/image/${user.imageGuid}`,
         };
       },
     }),

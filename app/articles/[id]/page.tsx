@@ -22,7 +22,7 @@ export default async function ArticleByIdPage({ params }: PageProps) {
 
       <div>
         <Image
-          src={`${process.env.NEXT_PUBLIC_API_URL}/api/articles/image/${article.imageGuid}`}
+          src={`/api/articles/image/${article.imageGuid}`}
           width={800}
           height={800}
           alt={`article ${id} image`}

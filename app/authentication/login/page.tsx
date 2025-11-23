@@ -6,6 +6,10 @@ export default function Login() {
       <main className="flex sm:flex-col lg:flex-row items-center w-full shadow rounded-3xl">
         <LoginForm />
         <div className="flex flex-col items-start gap-5 p-8 w-full">
+          <span>Vítejte v našem klientském portálu.
+            Přihlášením můžete sledovat své žádosti, spravovat osobní údaje a být stále v obraze.
+            Jsme tu pro vás.
+          </span>
         </div>
       </main>
     </div>

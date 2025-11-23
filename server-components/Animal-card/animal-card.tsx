@@ -56,7 +56,7 @@ export async function AnimalCard({ animal }: IAnimalCardProps) {
         <div className="relative w-full h-64">
           <Image
             alt={`daisy azyl ${animalDTO.name}`}
-            src={`${process.env.NEXT_PUBLIC_API_URL}/api/animals/images/${animalDTO.imageGuid}`}
+            src={`/api/animals/images/${animalDTO.imageGuid}`}
             fill
             className="rounded-2xl object-cover"
             sizes="(max-width: 768px) 100vw, 400px"

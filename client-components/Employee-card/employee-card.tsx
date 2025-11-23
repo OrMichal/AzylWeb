@@ -21,7 +21,7 @@ export function EmployeeCard({ employee }: EmployeeCardProps) {
         <p className="text-sm font-medium text-[#7c756a]">{employee.role}</p>
         <div className="relative w-full h-80">
           <Image
-            src={`${process.env.NEXT_PUBLIC_API_URL}/api/employees/images/${employee.image_guid}`}
+            src={`/api/employees/images/${employee.image_guid}`}
             fill
             alt="halal"
             className="rounded-4xl "

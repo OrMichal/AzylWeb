@@ -4,8 +4,7 @@ import { AppFormCredential } from "@/elements/app-form-credential/app-form-crede
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
 

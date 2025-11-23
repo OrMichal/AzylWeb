@@ -20,7 +20,7 @@ export function ArticleCard({ article }: IArticleCardProps) {
       >
         <div className="relative w-full sm:w-1/3 aspect-video sm:aspect-auto">
           <Image
-            src={`${process.env.NEXT_PUBLIC_API_URL}/api/articles/image/${articleDto.imageGuid}`}
+            src={`/api/articles/image/${articleDto.imageGuid}`}
             alt="article image"
             fill
             className="rounded-xl object-cover"

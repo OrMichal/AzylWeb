@@ -2,7 +2,7 @@ import { IContactFormData } from "@/interfaces/request-interfaces/contact-form-d
 import { SendContactEmail } from "@/services/mail-service/mail.service";
 import { NextResponse, NextRequest } from "next/server";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   const body = (await req.json()) as IContactFormData;
 
   try {

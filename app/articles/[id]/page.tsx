@@ -6,7 +6,7 @@ import { GetArticleById } from "@/services/article-service/article.service";
 import Image from "next/image";
 
 interface PageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function ArticleByIdPage({ params }: PageProps) {

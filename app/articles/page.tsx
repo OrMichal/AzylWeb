@@ -14,7 +14,7 @@ export default async function NewsletterPage({
   const filter = GetStringFromSearchParams(params as ReadonlyURLSearchParams);
   return (
     <main className="flex flex-col gap-10 items-center">
-      <ArticleGrid searchParams={queryParams} />
+      <ArticleGrid searchParams={searchParams} />
       <ArticlePages />
     </main>
   );

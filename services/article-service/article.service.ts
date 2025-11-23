@@ -10,8 +10,8 @@ export async function* GetAllArticles(): AsyncGenerator<IArticle> {
   }
 }
 
-export async function GetArticleById(id: string): IArticle {
-  const article: IArticle = await ArticleModel.findOne({ _id: id });
+export async function GetArticleById(id: string): Promise<IArticle> {
+  const article = await ArticleModel.findOne({ _id: id });
   return article;
 }
 

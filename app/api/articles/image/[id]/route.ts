@@ -2,14 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import { existsSync } from "fs";
 import { createReadStream } from "fs";
-import { iteratorToStream } from "@/app/api/employees/images/[id]/route";
-import { nodeStreamToIterator } from "@/app/api/employees/images/[id]/route";
+import {iteratorToStream, nodeStreamToIterator} from "@/services/stream-service/stream.service";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const { id } = params;
+  const { id } = await params;
   const filepath = path.resolve(
     process.cwd(),
     "database/article-images",

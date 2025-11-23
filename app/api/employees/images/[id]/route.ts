@@ -1,33 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { existsSync, createReadStream, ReadStream } from "fs";
 import path from "path";
-import { MongoConnect } from "@/lib/mongoose/mongoose";
-import { GetEmployeeById } from "@/services/Employee-service/employee-service";
-
-export async function* nodeStreamToIterator(stream: ReadStream) {
-  for await (const chunk of stream) {
-    yield new Uint8Array(chunk);
-  }
-}
-
-export function iteratorToStream(iterator: AsyncIterator<Uint8Array>) {
-  return new ReadableStream<Uint8Array>({
-    async pull(controller) {
-      const { value, done } = await iterator.next();
-      if (done) controller.close();
-      else controller.enqueue(value);
-    },
-    cancel() {
-      iterator.return?.();
-    },
-  });
-}
+import {iteratorToStream, nodeStreamToIterator} from "@/services/stream-service/stream.service";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const { id } = params;
+  const { id } = await params;
   const filepath = path.resolve(
     process.cwd(),
     "database/employee-images",

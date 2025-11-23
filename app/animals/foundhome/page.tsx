@@ -1,13 +1,14 @@
 import { AnimalFinder } from "@/client-components/Animal-finder/animal-finder";
 import { AnimalsFoundHomeDescription } from "@/client-components/Animals-found-home-description/animals-found-home-description";
-import { AnimalsInQuarantineDescription } from "@/client-components/Animals-in-quarantine-description/animals-in-quarantine-description";
 import { AnimalsGrid } from "@/server-components/animals-grid/animals-grid";
+import { queryParams } from "@/services/core-service/core.service";
 
 export default async function AnimalsFoundHome({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] };
+  searchParams: Promise<queryParams>;
 }) {
+  const  searchParamss  = await searchParams; 
   return (
     <div className="flex flex-col gap-10 mt-10 items-center w-full">
       <section>
@@ -15,8 +16,8 @@ export default async function AnimalsFoundHome({
       </section>
       <AnimalFinder>
         <AnimalsGrid
-          querry={searchParams}
-          page={parseInt(searchParams?.page?.toString())}
+          querry={searchParamss}
+          page={parseInt(searchParamss?.page?.toString()!)}
         />
       </AnimalFinder>
     </div>

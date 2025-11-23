@@ -7,7 +7,7 @@ import { GetAnimalById } from "@/services/animal-service/animals.service";
 import Image from "next/image";
 
 interface PageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function AnimalById({ params }: PageProps) {

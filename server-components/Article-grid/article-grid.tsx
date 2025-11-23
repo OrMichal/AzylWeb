@@ -4,13 +4,14 @@ import { GetArticlesByPage } from "@/services/article-service/article.service";
 import { GetGeneratorArray } from "@/services/core-service/core.service";
 
 export interface ISearchParamsAsyncComponent {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 }
 
 export async function ArticleGrid({
   searchParams,
 }: ISearchParamsAsyncComponent) {
-  const page = searchParams.page;
+  const pars = await searchParams;
+  const page = pars.page;
   const articles = await GetGeneratorArray(
     GetArticlesByPage(Number.parseInt(page ?? "1")),
   );

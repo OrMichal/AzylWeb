@@ -5,7 +5,7 @@ import { AnimalsInQuarantine } from "@/server-components/Animals-in-quarantine/a
 import { AnimalsLeftUs } from "@/server-components/Animals-left-us/animals-left-us";
 import { AnimalsLookingForHome } from "@/server-components/Animals-looking-for-home/animals-looking-for-home";
 import { GetAnimalTypeDTOS } from "@/services/animal-service/animaltypeDTO.service";
-import { GetGeneratorArray } from "@/services/core-service/core.service";
+import { GetGeneratorArray, queryParams } from "@/services/core-service/core.service";
 import Link from "next/link";
 
 export interface IAnimalGridFilters {
@@ -16,10 +16,12 @@ export interface IAnimalGridFilters {
 export default async function Animals({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] };
+  searchParams: Promise<queryParams>;
 }) {
   const animalTypes: Array<IAnimalTypeDTO> =
     await GetGeneratorArray(GetAnimalTypeDTOS());
+
+  const pars = await searchParams;
 
   return (
     <div className="pt-5 flex flex-col gap-3 w-full items-center">
@@ -46,7 +48,7 @@ export default async function Animals({
       <h2 className="mt-10 text-2xl font-medium">
         Prohlídněte si zvířátka, která si prošla naším azylem
       </h2>
-      <AnimalsGrid querry={searchParams} page={1} />
+      <AnimalsGrid querry={pars} page={1} />
     </div>
   );
 }

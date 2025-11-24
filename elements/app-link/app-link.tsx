@@ -9,11 +9,11 @@ export function AppLink({ label, href }: IAppLinkProps) {
   return (
     <Link
       href={href}
-      className="flex flex-col items-center gap-4 self-center  text-xl group bg-gray-300 p-3 rounded-2xl w-80
+      className="flex flex-col items-center gap-4 self-center md:text-xl group bg-gray-300 p-3 rounded-xl
           hover:shadow-lg hover:bg-gray-200
           "
     >
-      <span className="font-light transition-shadow">{label}</span>
+      <span className="font-light transition-shadow max-sm:text-sm">{label}</span>
     </Link>
   );
 }

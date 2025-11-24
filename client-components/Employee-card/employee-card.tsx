@@ -9,22 +9,29 @@ interface EmployeeCardProps {
 export function EmployeeCard({ employee }: EmployeeCardProps) {
   return (
     <div
-      className="bg-white border border-[#e6e1d8] rounded-4xl shadow-md p-6 max-w-sm hover:shadow-lg 
-      transition-shadow duration-200 w-100"
+      className="bg-white border border-[#e6e1d8] rounded-4xl shadow-md p-4 sm:p-6 w-full max-w-sm 
+                 hover:shadow-lg transition-shadow duration-200"
     >
       <div className="flex flex-col items-start space-y-2">
-        <h2 className="text-xl font-semibold text-[#444]">
+        {/* Name */}
+        <h2 className="text-lg sm:text-xl font-semibold text-[#444]">
           {employee.firstname}{" "}
           {employee.middlename ? `${employee.middlename} ` : ""}
           {employee.lastname}
         </h2>
-        <p className="text-sm font-medium text-[#7c756a]">{employee.role}</p>
-        <div className="relative w-full h-80">
+
+        {/* Role */}
+        <p className="text-sm sm:text-base font-medium text-[#7c756a]">
+          {employee.role}
+        </p>
+
+        {/* Image */}
+        <div className="relative w-full h-64 sm:h-80">
           <Image
             src={`/api/employees/images/${employee.image_guid}`}
             fill
-            alt="halal"
-            className="rounded-4xl "
+            alt={`${employee.firstname} ${employee.lastname}`}
+            className="rounded-4xl object-cover"
           />
         </div>
       </div>

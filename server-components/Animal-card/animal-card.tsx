@@ -51,29 +51,31 @@ export const CalcSinceDate = (birthdateStr: string): string => {
 export async function AnimalCard({ animal }: IAnimalCardProps) {
   const animalDTO: IAnimalDTO = await GetAnimalDTO(animal);
   return (
-    <div className="flex items-center gap-3 rounded-2xl shadow-lg hover:shadow-2xl hover:translate-y-[-8px] transition-transform">
-      <div className="m-2 relative flex flex-col items-center w-full gap-3">
-        <div className="relative w-full h-64">
-          <Image
-            alt={`daisy azyl ${animalDTO.name}`}
-            src={`/api/animals/images/${animalDTO.imageGuid}`}
-            fill
-            className="rounded-2xl object-cover"
-            sizes="(max-width: 768px) 100vw, 400px"
-          />
-        </div>
-
-        <div className="flex flex-col gap-1 flex-wrap mt-2 p-2 backdrop-blur-xs">
-          <span>
-            {animalDTO.name}{" "}
-            {animalDTO.gender == "sameček" ? (
-              <FontAwesomeIcon icon={faMars} />
-            ) : (
-              <FontAwesomeIcon icon={faVenus} />
-            )}
-          </span>
-        </div>
-      </div>
+<div className="flex flex-col items-center gap-3 rounded-xl shadow-lg 
+                hover:shadow-2xl hover:-translate-y-2 transition-transform duration-200 w-full max-w-sm">
+  <div className="relative w-full">
+    {/* Image */}
+    <div className="relative w-full h-48 sm:h-64 md:h-72 lg:h-80">
+      <Image
+        alt={`daisy azyl ${animalDTO.name}`}
+        src={`/api/animals/images/${animalDTO.imageGuid}`}
+        fill
+        className="rounded-xl object-cover"
+        sizes="(max-width: 768px) 100vw, 100px"
+      />
     </div>
+
+    <div className="absolute bottom-2 left-2 right-2 bg-white rounded-xl p-2 text-center">
+      <span className="font-semibold text-sm sm:text-base">
+        {animalDTO.name}{" "}
+        {animalDTO.gender === "sameček" ? (
+          <FontAwesomeIcon icon={faMars} className="ml-1" />
+        ) : (
+          <FontAwesomeIcon icon={faVenus} className="ml-1" />
+        )}
+      </span>
+    </div>
+  </div>
+</div>
   );
 }

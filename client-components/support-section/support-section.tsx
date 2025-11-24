@@ -1,30 +1,35 @@
-import { AppButton } from "@/elements/app-button/app-button";
 import { AppLink } from "@/elements/app-link/app-link";
 import Image from "next/image";
-import Link from "next/link";
 
 export function SupportSection() {
   return (
-    <section className="flex lg:flex-row md:flex-col sm:flex-col justify-between w-full pl-30 pr-30 p-10">
-      <div className="relative">
+    <section className="flex flex-col lg:flex-row justify-between items-center w-full px-5 py-5 md:px-20">
+      <div className="relative w-full lg:w-auto flex justify-center">
         <Image
-          src={"/images/support-us.jpg"}
-          className="rounded-2xl object-cover"
+          src="/images/support-us.jpg"
           alt=""
           width={800}
           height={800}
+          className="rounded-2xl object-cover w-full max-w-lg lg:max-w-[600px] h-auto"
           sizes="(max-width: 768px) 100vw, 600px"
         />
       </div>
-      <div className="flex justify-between flex-col items-center">
-        <div className="flex flex-col gap-15 p-7">
-          <h2 className="text-4xl">Chtěli byste nás podpořit ?</h2>
-          <span className="w-120 text-xl">
-            Pokud se vám naše práce líbí, můžete nás podpořit. Vážíme si
-            jakékoli podpory ať už finanční nebo v podobě daru.
+
+      <div className="flex flex-col items-center lg:items-start gap-10 w-full lg:pl-10 mt-8 lg:mt-0">
+        <div className="flex flex-col gap-6 w-full">
+          <h2 className="text-2xl md:text-4xl text-center lg:text-left font-bold">
+            Chtěli byste nás podpořit?
+          </h2>
+
+          <span className="text-base md:text-xl text-center lg:text-left">
+            Pokud se vám naše práce líbí, můžete nás podpořit.
+            Vážíme si jakékoli podpory ať už finanční nebo v podobě daru.
           </span>
         </div>
-        <AppLink label="Chci vás podpořit" href="/about/support" />
+
+        <div className="mt-6 ">
+          <AppLink label="Chci vás podpořit" href="/about/support" />
+        </div>
       </div>
     </section>
   );

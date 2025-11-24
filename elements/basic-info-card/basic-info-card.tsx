@@ -10,16 +10,17 @@ export function BasicInfoCard({ children, icon }: BasicInfoCardProps) {
   return (
     <div
       className="
-        shadow flex gap-14 justify-around items-center h-30 w-full p-8 bg-amber-300 rounded-4xl 
+        shadow flex flex-col md:flex-row gap-6 md:gap-14 justify-center md:justify-start items-center 
+        w-full p-6 md:p-8 bg-amber-300 rounded-3xl
       "
     >
       <FontAwesomeIcon
         icon={icon}
-        height={100}
-        width={100}
-        className="text-7xl text-white"
+        className="text-5xl text-white"
       />
-      <div className="w-full text-white font-bold">{children}</div>
+      <div className="w-full text-center md:text-left text-white font-bold">
+        {children}
+      </div>
     </div>
   );
 }

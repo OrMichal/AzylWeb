@@ -4,19 +4,18 @@ import { CompanyEmployees } from "@/server-components/company-employees/company-
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col items-center gap-12 p-8 ">
-      <section className="w-full p-12 bg-amber-400 text-white flex flex-col gap-4 items-center rounded-2xl shadow-lg text-center">
-        <h1 className="text-3xl font-bold">
-          Chceme umožnit každému zvířátku, které nemělo štěstí v životě, novou
-          šanci
+    <div className="flex flex-col items-center gap-8 sm:gap-12 p-4 sm:p-8">
+      <section className="w-full p-6 sm:p-12 bg-amber-400 text-white flex flex-col gap-3 sm:gap-4 items-center rounded-2xl shadow-lg text-center">
+        <h1 className="text-2xl sm:text-3xl font-bold">
+          Chceme umožnit každému zvířátku, které nemělo štěstí v životě, novou šanci
         </h1>
-        <p className="text-lg italic">
+        <p className="text-base sm:text-lg italic">
           Daisy z. s. – váš azyl pro pejsky a kočičky
         </p>
       </section>
 
       <ContentDescriptionShadowed heading="Kdo jsme?" id="whoweare">
-        <p className="text-lg font-extralight">
+        <p className="text-base sm:text-lg font-extralight leading-relaxed">
           Jsme skupina vášnivých milovníků zvířat, kteří věří, že každý tvor si
           zaslouží lásku, péči a bezpečný domov. Zaměřujeme se především na
           pejsky a kočičky, kteří prošli těžkými chvílemi – byli týraní,
@@ -26,11 +25,8 @@ export default function AboutPage() {
         </p>
       </ContentDescriptionShadowed>
 
-      <ContentDescriptionShadowed
-        heading="Jak to u nás funguje?"
-        id="jaktofunguje"
-      >
-        <p className="text-lg font-extralight">
+      <ContentDescriptionShadowed heading="Jak to u nás funguje?" id="jaktofunguje">
+        <p className="text-base sm:text-lg font-extralight leading-relaxed">
           V našem azylu pečujeme o zvířata s maximální péčí a ohledem na jejich
           zdravotní i psychický stav. Každý nový příchod projde veterinární
           kontrolou, rehabilitací a individuálním přístupem. Naši dobrovolníci a
@@ -40,8 +36,8 @@ export default function AboutPage() {
         </p>
       </ContentDescriptionShadowed>
 
-      <section className="flex flex-col gap-6 w-full ">
-        <h2 className="text-3xl font-semibold">Lidé v azylu</h2>
+      <section className="flex flex-col gap-4 sm:gap-6 w-full">
+        <h2 className="text-2xl sm:text-3xl font-semibold">Lidé v azylu</h2>
         <CompanyEmployees />
       </section>
 

@@ -14,28 +14,30 @@ import {
 
 export default function Home() {
   return (
-    <div className="w-full flex flex-col items-center gap-20">
+    <div className="w-full flex flex-col items-center gap-5 md:gap-20">
       <HeroSection />
-      <div className="relative flex flex-col lg:flex-row md:flex-col sm:flex-col gap-3 w-full">
+      <div className="flex flex-col lg:flex-row gap-5 md:gap-10 w-full">
         <BasicInfoCard icon={faHeart}>
-          <span className="text-wrap">
+          <span className="break-words">
             O zvířátka se staráme s láskou, jakou si zaslouží.
           </span>
         </BasicInfoCard>
         <BasicInfoCard icon={faKitMedical}>
-          <span className="text-wrap">
+          <span className="break-words">
             Mnoho zvířátkům jsme již zachránili život a dali nový domov.
           </span>
         </BasicInfoCard>
         <BasicInfoCard icon={faCommenting}>
-          <span className="text-wrap">Jsme otevření jakékoliv komunikaci.</span>
+          <span className="break-words">
+            Jsme otevření jakékoliv komunikaci.
+          </span>
         </BasicInfoCard>
       </div>
       <StatisticsShowcase />
       <SupportSection />
       <ContentDescription heading="Novinky z azylu">
         <ArticleList />
-        <div className="w-full flex flex-col gap-0 pt-10 items-center relative">
+        <div className="w-full flex flex-col items-center pt-10">
           <AppLink label="zobrazit více" href="/articles" />
         </div>
       </ContentDescription>

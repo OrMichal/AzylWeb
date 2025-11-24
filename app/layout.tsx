@@ -4,7 +4,6 @@ import { Quicksand } from "next/font/google";
 import "./globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { SessionWrapper } from "@/client-components/session-wrapper/session-wrapper";
-import { getServerSession } from "next-auth";
 import NavBar from "@/client-components/Nav-bar/nav-bar";
 import { AppFooter } from "@/elements/app-footer/app-footer";
 import { Toaster } from "react-hot-toast";
@@ -36,7 +35,7 @@ export default async function RootLayout({ children }: IRootLayoutProps) {
           <NavBar />
 
           <div className="flex flex-col items-center w-full min-h-dvh">
-            <div className="w-full sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1200px] p-10">
+            <div className="w-full sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1200px] p-5">
               <Breadcrumbs className="mr-auto mb-4" />
               <QueryWrapper>{children}</QueryWrapper>
             </div>

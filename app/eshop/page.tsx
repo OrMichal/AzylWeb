@@ -14,7 +14,7 @@ export default function Eshop() {
         </p>
         <Link
           href="/"
-          className="mt-4 px-6 py-2 rounded-full bg-yellow-500 hover:bg-yellow-600 text-white font-medium transition"
+          className="mt-4 px-6 py-2 rounded-xl bg-yellow-500 hover:bg-yellow-600 text-white font-medium transition"
         >
           Zpět na domovskou stránku
         </Link>

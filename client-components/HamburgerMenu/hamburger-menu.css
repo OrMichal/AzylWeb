@@ -1,42 +1,40 @@
 .hamburger {
   transition: 200ms;
   position: relative;
+}
 
-  &:hover {
-    cursor: pointer;
-  }
+.hamburger-menu-container {
+  position: fixed;
+  inset: 0; /* top:0; left:0; right:0; bottom:0; */
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.2); /* subtle overlay */
+  z-index: 998;
 }
 
 .hamburger-menu {
   position: fixed;
   top: 0;
-  left: 0;
-  height: 100dvh;
-  width: 40dvw;
+  right: 0;
+  width: 40vw;
+  max-width: 300px;
+  height: 100vh;
   z-index: 999;
-  overflow-x: hidden;
-
   display: flex;
   flex-direction: column;
   align-items: start;
-  animation: linear slide-in 0.4s forwards;
+  background: white;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%); /* start off screen */
+  animation: slide-in 0.4s forwards linear;
+  overflow-x: hidden;
 }
 
-.hamburger-menu-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100dvw;
-  height: 100dvh;
-  backdrop-filter: blur(2px);
-  z-index: 998;
-}
-
+/* Smooth slide-in using transform */
 @keyframes slide-in {
   from {
-    width: 0;
+    transform: translateX(100%);
   }
   to {
-    width: 40dvw;
+    transform: translateX(0);
   }
 }

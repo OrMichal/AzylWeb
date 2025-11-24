@@ -41,7 +41,7 @@ export default function NavBar() {
           />
           <NavBarItem title="E-shop" icon={faShop} href="/eshop"></NavBarItem>
         </div>
-        <div className="flex gap-10 items-center">
+        <div className="flex gap-10 items-center max-sm:hidden">
           <UserBox />
         </div>
       </div>

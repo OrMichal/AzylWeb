@@ -19,9 +19,9 @@ export function ArticlePages() {
   };
 
   return (
-    <section className="flex justify-between w-full">
-      <div className={`${!morePages ? "invisible" : ""}`}>
-        <AppButton label="předchozí stránka" onClick={() => switchPage(-1)} />
+    <section className="flex flex-row gap-3 max-sm:flex-col justify-between w-full">
+      <div className={`max-sm:w-full ${!morePages ? "invisible" : ""}`}>
+        <AppButton className="w-full" label="předchozí stránka" onClick={() => switchPage(-1)} />
       </div>
       <AppButton label="další stránka" onClick={() => switchPage(1)} />
     </section>

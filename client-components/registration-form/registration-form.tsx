@@ -16,6 +16,7 @@ export interface IRegistrationData {
   middlename: string | null;
   lastname: string;
   password: string;
+  passwordConfirm: string;
 }
 
 export function RegistrationForm() {
@@ -23,12 +24,11 @@ export function RegistrationForm() {
     username: "",
     email: "",
     firstname: "",
-    middlename: null,
+    middlename: "",
     lastname: "",
     password: "",
+    passwordConfirm: "",
   });
-
-  const [samePasswords, setSamePasswords] = useState<Boolean>(false);
 
   const registerMutation = useMutation({
     mutationKey: ["registerMut"],
@@ -51,104 +51,109 @@ export function RegistrationForm() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (regData.password !== regData.passwordConfirm) {
+      toast.error("Hesla se neshodují");
+      return;
+    }
     registerMutation.mutate();
   };
 
   return (
     <form
-      className="flex flex-col items-center gap-15 rounded-2xl  p-8 w-full"
+      className="flex flex-col items-center gap-6 sm:gap-8 p-6 sm:p-8 rounded-2xl w-full bg-white"
       onSubmit={handleSubmit}
     >
-      <h2 className="self-center text-3xl font-medium">Registrace</h2>
-      <div className="flex flex-col gap-9">
-        <div className="flex flex-col lg:gap-10 lg:flex-row sm:flex-col items-center justify-between w-full">
-          <AppFormCredential
-            name="firstname"
-            label=""
-            placeholder="jméno"
-            icon={faUser}
-            required
-            onChange={(e) =>
-              setRegData({ ...regData, firstname: e.target.value })
-            }
-          />
-          <AppFormCredential
-            name="middlename"
-            label=""
-            placeholder="druhé jméno"
-            icon={faUser}
-            required
-            onChange={(e) =>
-              setRegData({ ...regData, middlename: e.target.value })
-            }
-          />
-          <AppFormCredential
-            name="lastname"
-            label=""
-            placeholder="příjmení"
-            icon={faUser}
-            required
-            onChange={(e) =>
-              setRegData({ ...regData, lastname: e.target.value })
-            }
-          />
-        </div>
-        <div className="flex lg:flex-row sm:flex-col lg:justify-between sm:gap-10 w-full ">
-          <AppFormCredential
-            name="username"
-            type="text"
-            label=""
-            placeholder="uživatelské jméno"
-            icon={faUser}
-            required
-            onChange={(e) =>
-              setRegData({ ...regData, username: e.target.value })
-            }
-          />
-          <AppFormCredential
-            name="email"
-            type="email"
-            label=""
-            placeholder="email"
-            icon={faEnvelope}
-            required
-            onChange={(e) => setRegData({ ...regData, email: e.target.value })}
-          />
-        </div>
-        <div className="flex lg:flex-row sm:flex-col lg:justify-between sm:gap-10 w-full">
-          <AppFormCredential
-            name="password"
-            type="password"
-            label=""
-            placeholder="heslo"
-            icon={faLock}
-            required
-            onChange={(e) =>
-              setRegData({ ...regData, password: e.target.value })
-            }
-          />
-          <AppFormCredential
-            name="password confirm"
-            type="password"
-            label=""
-            placeholder="potvrzení hesla"
-            icon={faLock}
-            required
-            onChange={(e) =>
-              setRegData({ ...regData, password: e.target.value })
-            }
-          />
-        </div>
+      <h2 className="text-2xl sm:text-3xl font-medium self-center mb-4">
+        Registrace
+      </h2>
+
+      <div className="flex flex-col gap-4 w-full">
+        <AppFormCredential
+          label="Jméno"
+          name="firstname"
+          placeholder="Jméno"
+          icon={faUser}
+          required
+          onChange={(e) =>
+            setRegData({ ...regData, firstname: e.target.value })
+          }
+        />
+        <AppFormCredential
+          label="Druhé jméno"
+          name="middlename"
+          placeholder="Druhé jméno"
+          icon={faUser}
+          onChange={(e) =>
+            setRegData({ ...regData, middlename: e.target.value })
+          }
+        />
+        <AppFormCredential
+          label="Příjmení"
+          name="lastname"
+          placeholder="Příjmení"
+          icon={faUser}
+          required
+          onChange={(e) =>
+            setRegData({ ...regData, lastname: e.target.value })
+          }
+        />
       </div>
-      <AppButton type="submit" className="w-80 mt-15" label="Registrovat se" />
-      <span>
+
+      <div className="flex flex-col lg:flex-row gap-4 w-full">
+        <AppFormCredential
+          label="Uživatelské jméno"
+          name="username"
+          type="text"
+          placeholder="Uživatelské jméno"
+          icon={faUser}
+          required
+          onChange={(e) =>
+            setRegData({ ...regData, username: e.target.value })
+          }
+        />
+        <AppFormCredential
+          label="Email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          icon={faEnvelope}
+          required
+          onChange={(e) => setRegData({ ...regData, email: e.target.value })}
+        />
+      </div>
+
+      <div className="flex flex-col lg:flex-row gap-4 w-full">
+        <AppFormCredential
+          label="Heslo"
+          name="password"
+          type="password"
+          placeholder="Heslo"
+          icon={faLock}
+          required
+          onChange={(e) =>
+            setRegData({ ...regData, password: e.target.value })
+          }
+        />
+        <AppFormCredential
+          label="Potvrzení hesla"
+          name="passwordConfirm"
+          type="password"
+          placeholder="Potvrzení hesla"
+          icon={faLock}
+          required
+          onChange={(e) =>
+            setRegData({ ...regData, passwordConfirm: e.target.value })
+          }
+        />
+      </div>
+
+      <AppButton type="submit" label="Registrovat se" className="w-full sm:w-80 mt-4" />
+
+      <span className="text-sm text-center mt-4">
         Už máte účet?{" "}
-        <Link
-          href={"/authentication/login"}
-          className="underline text-blue-700"
-        >
+        <Link href="/authentication/login" className="underline text-blue-700">
           Přihlaste se
-        </Link>{" "}
+        </Link>
       </span>
     </form>
   );

@@ -24,31 +24,40 @@ export default async function Animals({
   const pars = await searchParams;
 
   return (
-    <div className="pt-5 flex flex-col gap-3 w-full items-center">
-      <div className="flex gap-3 w-full lg:flex-row sm:flex-col flex-col">
-        <Link href={"/animals/quarantine?animalState=quarantine"} className="w-full">
+    <div className="pt-5 flex flex-col gap-6 w-full items-center">
+      <div className="flex flex-col sm:flex-col md:flex-row gap-4 w-full lg:justify-between">
+        <Link
+          href="/animals/quarantine?animalState=quarantine"
+          className="w-full sm:w-full md:w-1/2 lg:w-1/4"
+        >
           <AnimalsInQuarantine />
         </Link>
         <Link
-          href={"/animals/foundhome?animalState=foundHome"}
-          className="w-full"
+          href="/animals/foundhome?animalState=foundHome"
+          className="w-full sm:w-full md:w-1/2 lg:w-1/4"
         >
           <AnimalsFoundHome />
         </Link>
         <Link
-          href={"/animals/lookingforhome?animalState=lookingForHome"}
-          className="w-full"
+          href="/animals/lookingforhome?animalState=lookingForHome"
+          className="w-full sm:w-full md:w-1/2 lg:w-1/4"
         >
           <AnimalsLookingForHome />
         </Link>
-        <Link href={"/animals/leftus?animalState=leftUs"} className="w-full">
+        <Link
+          href="/animals/leftus?animalState=leftUs"
+          className="w-full sm:w-full md:w-1/2 lg:w-1/4"
+        >
           <AnimalsLeftUs />
         </Link>
       </div>
-      <h2 className="mt-10 text-2xl font-medium">
+
+      <h2 className="mt-10 text-xl sm:text-2xl font-medium text-center">
         Prohlídněte si zvířátka, která si prošla naším azylem
       </h2>
-      <AnimalsGrid querry={pars} page={1} />
+      <div className="w-full">
+        <AnimalsGrid querry={pars} page={1} />
+      </div>
     </div>
   );
 }

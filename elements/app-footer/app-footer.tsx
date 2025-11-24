@@ -12,17 +12,17 @@ import {
 export function AppFooter() {
   return (
     <footer
-      className="p-3 bg-black text-white flex flex-col items-center 
+      className="p-5 bg-black text-white flex flex-col items-center 
       "
     >
       <section
-        className=" justify-between gap-5
+        className=" justify-between gap-10
         w-full sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1200px]
         grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1
         "
       >
         <div className="flex flex-col gap-2 w-full">
-          <span>Kontakt:</span>
+          <span className="text-amber-300 text-xl">Kontakt:</span>
           <div className="flex flex-col gap-3 *:hover:underline *:hover:text-blue-400">
             <Link
               target="_blank"
@@ -50,14 +50,14 @@ export function AppFooter() {
           </div>
         </div>
         <div className="flex flex-col gap-2 w-full">
-          <span>Mohlo by vás zajímat</span>
+          <span className="text-amber-300 text-xl">Mohlo by vás zajímat</span>
           <div className="flex flex-col p-2 gap-3 *:hover:underline *:hover:text-blue-400">
             <Link href={"/about"}>Jak nás můžete podpořit</Link>
             <Link href={"/about#howitworks"}>Jak probíhá adopce</Link>
           </div>
         </div>
         <div className="flex flex-col gap-2 w-full">
-          <span>Informace o nás</span>
+          <span className="text-amber-300 text-xl">Informace o nás</span>
           <div className="flex flex-col p-2 gap-3 *:hover:underline *:hover:text-blue-400">
             <Link href={"/about"}>Kdo jsme</Link>
             <Link href={"/about#howitworks"}>Jak to u nás funguje</Link>

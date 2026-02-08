@@ -10,6 +10,7 @@ export async function GetAnimals(
   page: number,
   filters?: IAnimalGridFilters
 ): Promise<IAnimal[]> {
+  await MongoConnect();
   const query: any = {};
 
   if (filters?.state) {
@@ -27,6 +28,7 @@ export async function GetAnimals(
 }
 
 export async function GetAnimalsPages(filter?: Record<string, any>): Promise<number> {
+  await MongoConnect();
   let query: Record<string, any> = { ...filter };
 
   const animType = await AnimalTypeModel.findOne({ type: filter?.animalType });
@@ -90,6 +92,7 @@ export async function* GetAnimalsByState(
   state: string,
   count?: number,
 ): AsyncGenerator<IAnimal> {
+  await MongoConnect();
   let num: number = 0;
   for await (const animal of Animal.find<IAnimal>({ state: state })) {
     if (num == count && num) return;

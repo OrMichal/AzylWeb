@@ -15,16 +15,15 @@ export function ArticleCard({ article }: IArticleCardProps) {
   return (
     <Link className="block w-full" href={`/articles/${article._id}`}>
       <article
-        className="flex flex-col gap-4 sm:gap-6 shadow p-4 sm:p-5 rounded-xl w-full relative
+        className="flex flex-row gap-4 sm:gap-6 shadow p-4 sm:p-5 rounded-xl w-full relative
         hover:shadow-lg transition-shadow duration-200"
       >
-        <div className="relative w-full aspect-video sm:aspect-[4/3] flex-shrink-0">
+        <div className="relative w-1/6 sm:aspect-4/3 shrink-0">
           <Image
             src={`/api/articles/image/${articleDto.imageGuid}`}
             alt={articleDto.heading}
-            fill
             className=" object-cover"
-            sizes="(max-width: 640px) 100vw, 33vw"
+            fill
           />
         </div>
 
@@ -34,10 +33,10 @@ export function ArticleCard({ article }: IArticleCardProps) {
           </h2>
 
           <span className="text-xs sm:text-sm text-gray-500">
-            před {CalcSinceDate(articleDto.createdAt)}
+            {CalcSinceDate(articleDto.createdAt)}
           </span>
 
-          <p className="text-sm sm:text-base pt-2 sm:pt-3 text-gray-700 line-clamp-3">
+          <p className="text-sm sm:text-base sm:pt-3 text-gray-700 line-clamp-2">
             {articleDto.description}
           </p>
         </section>

@@ -2,9 +2,13 @@ import { IAnimalDTO } from "@/interfaces/animal/IAnimalDTO";
 import { IAnimal } from "@/models/animal/animal";
 import { GetAnimalDTO } from "@/services/animal-service/animalDTO.service";
 import {
+    faCloud,
   faFemale,
+  faHouse,
+  faMagnifyingGlass,
   faMale,
   faMars,
+  faRadiation,
   faVenus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -51,11 +55,10 @@ export const CalcSinceDate = (birthdateStr: string): string => {
 export async function AnimalCard({ animal }: IAnimalCardProps) {
   const animalDTO: IAnimalDTO = await GetAnimalDTO(animal);
   return (
-<div className="flex flex-col items-center gap-3 rounded-xl shadow-lg 
-                hover:shadow-2xl hover:-translate-y-2 transition-transform duration-200 w-full max-w-sm">
+<div className="flex flex-col items-center gap-3 rounded-xl shadow p-3 border border-gray-200
+                hover:shadow-lg hover:-translate-y-2 transition-transform duration-200 w-full max-w-sm">
   <div className="relative w-full">
-    {/* Image */}
-    <div className="relative w-full h-48 sm:h-64 md:h-72 lg:h-80">
+    <div className="relative w-full h-48 sm:h-64 md:h-55 lg:h-50">
       <Image
         alt={`daisy azyl ${animalDTO.name}`}
         src={`/api/animals/images/${animalDTO.imageGuid}`}
@@ -65,15 +68,44 @@ export async function AnimalCard({ animal }: IAnimalCardProps) {
       />
     </div>
 
-    <div className="absolute bottom-2 left-2 right-2 bg-white rounded-xl p-2 text-center">
-      <span className="font-semibold text-sm sm:text-base">
-        {animalDTO.name}{" "}
+    <div className="bg-white rounded-xl p-2 text-center flex flex-col items-center">
+      <span className="font-semibold text-md sm:text-base inline-flex flex-row items-center gap-1">
+        {animalDTO.name}
         {animalDTO.gender === "sameček" ? (
           <FontAwesomeIcon icon={faMars} className="ml-1" />
         ) : (
           <FontAwesomeIcon icon={faVenus} className="ml-1" />
         )}
       </span>
+      <span className="text-gray-500">{animalDTO.animalType}</span>
+      {
+        animalDTO.state === "našel domov" &&
+          <span className="inline-flex flex-row items-center gap-2 p-2 rounded-xl bg-blue-300 mt-2">
+            <FontAwesomeIcon icon={faHouse} />
+            <span>našel domov</span>
+          </span>
+      }
+      {
+        animalDTO.state === "hledá domov" &&
+          <span className="inline-flex flex-row items-center gap-2 p-2 rounded-xl bg-green-300 mt-2">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <span>hledá domov</span>
+          </span>
+      }
+      {
+        animalDTO.state === "opustil nás" &&
+          <span className="inline-flex flex-row items-center gap-2 p-2 rounded-xl bg-green-300 mt-2">
+            <FontAwesomeIcon icon={faCloud} />
+            <span>opustil nás</span>
+          </span>
+      }
+      {
+        animalDTO.state === "karanténa" &&
+          <span className="inline-flex flex-row items-center gap-2 p-2 rounded-xl bg-green-300 mt-2">
+            <FontAwesomeIcon icon={faRadiation} />
+            <span>karanténa</span>
+          </span>
+      }
     </div>
   </div>
 </div>

@@ -2,17 +2,39 @@ import { MongoConnect } from "@/lib/mongoose/mongoose";
 import { Animal, IAnimal } from "@/models/animal/animal";
 import { AnimalTypeModel, IAnimalType } from "@/models/animalType/animalType";
 import { queryParams } from "../core-service/core.service";
+import { IAnimalGridFilters } from "@/server-components/animals-grid-filter/animals-grid-filter";
 
-const ANIMALS_PER_PAGE = 12;
+const ANIMALS_PER_PAGE = 10;
 
-export async function GetAllAnimals(): Promise<IAnimal[]> {
-  await MongoConnect();
-  const animals: IAnimal[] = await Animal.find();
-  if (!animals) {
-    throw new Error("Animals could not be found");
+export async function GetAnimals(
+  page: number,
+  filters?: IAnimalGridFilters
+): Promise<IAnimal[]> {
+  const query: any = {};
+
+  if (filters?.state) {
+    query.state = filters.state;
   }
 
-  return animals;
+  if (filters?.animalType) {
+    const id = await AnimalTypeModel.findOne({ type: filters?.animalType });
+    query.animalType = id._id;
+  }
+
+  return Animal.find(query)
+    .skip((page - 1) * ANIMALS_PER_PAGE)
+    .limit(ANIMALS_PER_PAGE)
+}
+
+export async function GetAnimalsPages(filter?: Record<string, any>): Promise<number> {
+  let query: Record<string, any> = { ...filter };
+
+  const animType = await AnimalTypeModel.findOne({ type: filter?.animalType });
+  query.animalType = animType?._id;
+
+  const res = await Animal.find(query || {});
+
+  return Math.ceil(res.length / ANIMALS_PER_PAGE);
 }
 
 export async function GetAnimalsByType(typeName: string): Promise<IAnimal[]> {

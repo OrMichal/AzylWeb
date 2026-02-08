@@ -1,9 +1,10 @@
-import { ArticlePages } from "@/client-components/Article-pages/article-pages";
 import {
   ArticleGrid,
   ISearchParamsAsyncComponent,
 } from "@/server-components/Article-grid/article-grid";
-import { GetStringFromSearchParams } from "@/services/core-service/core.service";
+import { Pagination } from "@/server-components/Pagination/pagination";
+import { GetArticlesByPage, GetArticlesMaxPageByPage } from "@/services/article-service/article.service";
+import { GetGeneratorArray, GetStringFromSearchParams } from "@/services/core-service/core.service";
 import { ReadonlyURLSearchParams } from "next/navigation";
 
 export default async function NewsletterPage({
@@ -11,11 +12,12 @@ export default async function NewsletterPage({
 }: ISearchParamsAsyncComponent) {
   const queryParams = await searchParams;
   const params = new URLSearchParams();
-  const filter = GetStringFromSearchParams(params as ReadonlyURLSearchParams);
+  const page = Number.parseInt(queryParams.page as string);
+  const maxPage = await GetArticlesMaxPageByPage(page);
   return (
     <main className="flex flex-col gap-10 items-center">
       <ArticleGrid searchParams={searchParams} />
-      <ArticlePages />
+      <Pagination searchParams={searchParams} maxPage={maxPage} />
     </main>
   );
 }

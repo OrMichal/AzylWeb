@@ -6,7 +6,7 @@ export async function ArticleList() {
   const articles = (await GetGeneratorArray(GetArticlesByPage(1))).slice(0, 3);
 
   return (
-    <section className="flex flex-col lg:flex-row gap-5 justify-between w-full">
+    <section className="flex flex-col gap-5 justify-between w-full">
       {articles.map((a) => (
         <ArticleCard key={a.id} article={a} />
       ))}

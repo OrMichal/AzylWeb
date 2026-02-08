@@ -1,11 +1,7 @@
 import { ArticleCard } from "@/client-components/Article-card/article-card";
-import { AppLink } from "@/elements/app-link/app-link";
 import { GetArticlesByPage } from "@/services/article-service/article.service";
 import { GetGeneratorArray } from "@/services/core-service/core.service";
-
-export interface ISearchParamsAsyncComponent {
-  searchParams: Promise<{ [key: string]: string | undefined }>;
-}
+import { ISearchParamsAsyncComponent } from "@/interfaces/extensions/ISearchParamsAsyncComponent";
 
 export async function ArticleGrid({
   searchParams,
@@ -31,7 +27,7 @@ export async function ArticleGrid({
   }
 
   return (
-    <div className="grid md:grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4 w-full">
+    <div className="flex flex-col gap-4 w-full">
       {articles.map((a) => (
         <ArticleCard key={crypto.randomUUID()} article={a} />
       ))}

@@ -41,7 +41,7 @@ const authOptions: AuthOptions = {
         }
 
         return {
-          id: (user._id as ObjectId).toString(),
+          id: (user._id as unknown as ObjectId).toString(),
           name: user.username,
           email: user.email,
           image: `/api/users/image/${user.imageGuid}`,

@@ -1,11 +1,9 @@
+import { ISearchParamsAsyncComponent } from "@/interfaces/extensions/ISearchParamsAsyncComponent";
 import {
   ArticleGrid,
-  ISearchParamsAsyncComponent,
 } from "@/server-components/Article-grid/article-grid";
 import { Pagination } from "@/server-components/Pagination/pagination";
-import { GetArticlesByPage, GetArticlesMaxPageByPage } from "@/services/article-service/article.service";
-import { GetGeneratorArray, GetStringFromSearchParams } from "@/services/core-service/core.service";
-import { ReadonlyURLSearchParams } from "next/navigation";
+import {  GetArticlesMaxPageByPage } from "@/services/article-service/article.service";
 
 export default async function NewsletterPage({
   searchParams,

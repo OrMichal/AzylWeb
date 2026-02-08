@@ -11,6 +11,7 @@ export async function* GetAllArticles(): AsyncGenerator<IArticle> {
 }
 
 export async function GetArticleById(id: string): Promise<IArticle> {
+  await MongoConnect();
   const article = await ArticleModel.findOne({ _id: id });
   return article;
 }
@@ -32,6 +33,7 @@ export async function* GetArticlesByPage(
   page: number,
   filter?: Record<string, any>,
 ): AsyncGenerator<IArticle> {
+  await MongoConnect();
   for await (const article of ArticleModel.find(filter || {})
     .sort({ createdAt: -1 })
     .skip((page - 1) * ARTICLES_PER_PAGE)
@@ -41,6 +43,7 @@ export async function* GetArticlesByPage(
 }
 
 export async function GetArticlesMaxPageByPage(page: number): Promise<number> {
+  await MongoConnect();
   const articles = await ArticleModel.find();
 
   return GetArticlePagesCount(articles);
@@ -53,6 +56,7 @@ export async function GetArticlesCount(
 }
 
 export async function GetArticlesPages(filter?: Record<string, any>): Promise<number> {
+  await MongoConnect();
   const articleCount = await ArticleModel.countDocuments(filter || {})
 
   return Math.ceil(articleCount / ARTICLES_PER_PAGE);
